@@ -5,7 +5,9 @@ import NavBar from "./components/NavBar";
 import Login from '../src/view/login-page';
 import HomePage from '../src/view/home-page'
 import CreateWedding from '../src/view/create-wedding-page';
-import { FilePond } from 'react-filepond';
+import AllWeddings from '../src/components/home/admin/get-all-weddings'
+import WeddingDetails from './view/wedding-details-page'
+
 
 import 'filepond/dist/filepond.min.css';
 // import './css/animate.css';
@@ -56,10 +58,12 @@ class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path = "/admin/create" component ={CreateWedding}/>
+                <Route exact path = "/admin/all" component ={AllWeddings}/>
+                <Route exact path = "/admin/all/:id" component={WeddingDetails}/>
+                 
               </Switch>
             </UserProvider>
           </Fragment>
-          {/* <FilePond /> */}
         </Router>
       </div>
     );
