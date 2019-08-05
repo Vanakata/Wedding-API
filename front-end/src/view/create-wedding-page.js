@@ -26,7 +26,8 @@ class CreateWedding extends React.Component {
         })
     }
     handleSubmit = (event) => {
-        event.PreventDefault();
+        debugger;
+        event.preventDefault();
         const { email, username, password, confirmPassword, weddingDate, groom, bride } = this.state;
 
         const credentials = {
@@ -124,10 +125,10 @@ class CreateWedding extends React.Component {
 
                         <label>Wedding Date</label>
                         <input
-                            type='date'
+                            type='text'
                             name='weddingDate'
                             id='weddingDate'
-                            placeholder='Enter wedding-date'
+                            placeholder='dd/mm/yyyy'
                             value={weddingDate}
                             onChange={this.handleChange}
                             className='createWedding'

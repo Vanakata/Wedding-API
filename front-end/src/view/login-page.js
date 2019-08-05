@@ -26,7 +26,7 @@ class Login extends Component {
         const { updateUser } = this.props;
         debugger;
         const credentials = {
-            username,
+            username:username.toLowerCase(),
             password
         }
         this.setState({

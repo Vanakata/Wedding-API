@@ -4,7 +4,7 @@ import { UserProvider, defaultUserState } from "./components/User-Context"
 import NavBar from "./components/NavBar";
 import Login from '../src/view/login-page';
 import HomePage from '../src/view/home-page'
-import CreateWedding from '../src/view/create-wedding';
+import CreateWedding from '../src/view/create-wedding-page';
 import { FilePond } from 'react-filepond';
 
 import 'filepond/dist/filepond.min.css';

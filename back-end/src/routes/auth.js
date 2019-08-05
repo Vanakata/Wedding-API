@@ -5,6 +5,7 @@ const validator = require('validator');
 const router = new express.Router();
 
 function validateRegisterForm(input) {
+    debugger;
     const errors = {};
     let isFormValid = true;
     let message = '';
@@ -58,7 +59,7 @@ function validateLoginForm(input) {
     }
 }
 
-router.post('/signup', (req, res, next) => {
+router.post('/admin/signup', (req, res, next) => {
     const validationResult = validateRegisterForm(req.body);
     if (!validationResult.success) {
         return res.status(400).json({

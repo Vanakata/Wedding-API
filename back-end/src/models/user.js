@@ -5,7 +5,7 @@ const encryption = require('../utils/encryption');
 let userSchema = new mongoose.Schema({
     username: {
         type: mongoose.SchemaTypes.String,
-        required:true,
+        required: true,
     },
     email: {
         type: mongoose.SchemaTypes.String,
@@ -16,14 +16,17 @@ let userSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.String,
         required: true
     },
-    weddingDate:{
-        type:mongoose.SchemaTypes.Date,
+    weddingDate: {
+        type: mongoose.SchemaTypes.String,
+        
     },
-    groom:{
-        type:mongoose.SchemaTypes.String
+    groom: {
+        type: mongoose.SchemaTypes.String,
+        
     },
-    bride:{
-        type:mongoose.SchemaTypes.String
+    bride: {
+        type: mongoose.SchemaTypes.String,
+        
     },
     roles: [{
         type: mongoose.SchemaTypes.String
@@ -43,7 +46,7 @@ userSchema.method({
 
 let User = mongoose.model('User', userSchema);
 module.exports = User;
-module.exports.seedAdminUser=()=> {
+module.exports.seedAdminUser = () => {
     User.find({})
         .then(users => {
             if (users.length > 0) {
@@ -54,10 +57,10 @@ module.exports.seedAdminUser=()=> {
                 User.create({
 
                     email: 'vanakata@hotmail.com',
-                    username: 'Vanakata',
+                    username: 'vanakata',
                     password,
                     salt,
-                    roles: ['admin']
+                    roles: ['admin'],
                 });
             };
         });

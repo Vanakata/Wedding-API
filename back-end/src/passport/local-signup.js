@@ -11,7 +11,10 @@ module.exports = new PassportLocalStrategy({
     const user = {
         email: email.trim(),
         password: password.trim(),
-        username: req.body.username.trim(),
+        username: req.body.username.trim().toLowerCase(),
+        weddingDate:req.body.weddingDate.trim(),
+        groom:req.body.groom.trim().toLowerCase(),
+        bride:req.body.bride.trim().toLowerCase(),
     };
     User.find({ email: email })
         .then(users => {

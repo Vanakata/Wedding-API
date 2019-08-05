@@ -30,8 +30,8 @@ const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
 
                                             :
                                             <ul>
+                                                <NavLink to="/profile"><li>My Profile</li></NavLink>
                                                 <NavLink to="contact.html"><li>Guests</li></NavLink>
-
                                                 <NavLink to="/" ><li>Gallery</li></NavLink>
                                                 <NavLink to="/" onClick={logout}><li>Logout</li></NavLink>
                                             </ul>
