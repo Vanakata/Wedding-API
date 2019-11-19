@@ -1,54 +1,66 @@
 import React, { Fragment } from 'react';
 import { UserConsumer } from "../components/User-Context";
 import { NavLink } from "react-router-dom"
+import { Fade, Zoom } from 'react-reveal'
+
 
 const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
     return (
         <header id="header">
-            <nav >
+            <nav id="navigation" >
                 <Fragment >
                     <Fragment >
                         <Fragment >
                             <Fragment >
-                                <NavLink to="/">My Wedding<strong>.</strong></NavLink>
+                                <Zoom><NavLink id="greeting-message" to="/"><strong>Welcome to My Wedding.</strong></NavLink></Zoom>
                             </Fragment>
                         </Fragment>
+                        <div id="nav-container">
                         {
                             isLoggedIn ?
-                                <Fragment >
-                                    <ul>
-                                        <NavLink to="/"><li>Home</li></NavLink>
 
-                                    </ul>
+                                <Fragment >
+                                    
                                     {
                                         isAdmin ?
-                                            <ul>
-                                                <NavLink to="/admin/create"><li>Create New Wedding</li></NavLink>
-                                                <NavLink to="/admin/all"><li>All weddings</li></NavLink>
+                                            <ul className="admin-navigation">
+
                                                 <NavLink to="/" onClick={logout}><li>Logout</li></NavLink>
+                                                <NavLink to="/admin/all"><li>All weddings</li></NavLink>
+                                                <NavLink to="/admin/create"><li>New Wedding</li></NavLink>
                                             </ul>
 
                                             :
-                                            <ul>
-                                                <NavLink to="/profile"><li>My Profile</li></NavLink>
-                                                <NavLink to="contact.html"><li>Guests</li></NavLink>
-                                                <NavLink to="/" ><li>Gallery</li></NavLink>
-                                                <NavLink to="/" onClick={logout}><li>Logout</li></NavLink>
-                                            </ul>
+                                            <Fade right>
+                                                <ul>
+                                                    <NavLink to="/" onClick={logout}><li>Logout</li></NavLink>
+                                                    <NavLink to="/guest-list"><li>Guest List</li></NavLink>
+                                                    <NavLink to="/" ><li>Gallery</li></NavLink>
+                                                    <NavLink to="/profile"><li>My Profile</li></NavLink>
+
+                                                </ul>
+                                            </Fade>
                                     }
                                 </Fragment>
+
                                 :
                                 <Fragment >
-                                    <ul>
-                                        <li className="active"><NavLink to="/">Home</NavLink></li>
-                                        <li className="has-dropdown"><NavLink to="/login">Login</NavLink></li>
-                                        <li><NavLink to="contact.html">Who we are</NavLink></li>
-                                        <li><NavLink to="contact.html">What we offer</NavLink></li>
-                                        <li><NavLink to="contact.html">Gallery</NavLink></li>
-                                        <li><NavLink to="contact.html">Contact us</NavLink></li>
-                                    </ul>
+                                    <Fade right>
+                                        <ul className="not-logged-user-nav">
+                                            <NavLink to="contact.html"><li>Contact us</li></NavLink>
+                                            <NavLink to="contact.html"><li>Who we are</li></NavLink>
+                                            <NavLink to="contact.html"><li>What we offer</li></NavLink>
+                                            <NavLink to="contact.html"><li>Gallery</li></NavLink>
+                                            <NavLink to="/login"><li>Login</li></NavLink>
+
+                                        </ul>
+                                    </Fade>
                                 </Fragment>
+
+
                         }
+                        </div>
+
                     </Fragment>
                 </Fragment>
             </nav>

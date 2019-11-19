@@ -5,7 +5,6 @@ const validator = require('validator');
 const router = new express.Router();
 
 function validateRegisterForm(input) {
-    debugger;
     const errors = {};
     let isFormValid = true;
     let message = '';

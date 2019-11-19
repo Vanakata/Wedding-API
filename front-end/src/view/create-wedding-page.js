@@ -26,7 +26,7 @@ class CreateWedding extends React.Component {
         })
     }
     handleSubmit = (event) => {
-        debugger;
+
         event.preventDefault();
         const { email, username, password, confirmPassword, weddingDate, groom, bride } = this.state;
 
@@ -72,7 +72,7 @@ class CreateWedding extends React.Component {
             );
         }
         return (
-            <div>
+            <div className="create-wedding-container">
                 {
                     error.length ?
                         <div>Something went wrong:{error}</div>
@@ -81,7 +81,7 @@ class CreateWedding extends React.Component {
                 }
                 <h1>Create new Wedding</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div className="create-wedding">
                         <label>E-mail:</label>
                         <input
                             type='text'
@@ -90,8 +90,8 @@ class CreateWedding extends React.Component {
                             placeholder='Enter users e-mail'
                             value={email}
                             onChange={this.handleChange}
-                            className='createWedding'
-                        />
+                            className="create-wedding-input"
+                        /><br />
                         <label>Username:</label>
                         <input
                             type='text'
@@ -100,8 +100,8 @@ class CreateWedding extends React.Component {
                             placeholder='Enter valid username'
                             value={username}
                             onChange={this.handleChange}
-                            className='createWedding'
-                        />
+                            className="create-wedding-input"
+                        /><br />
                         <label>Password:</label>
                         <input
                             type='password'
@@ -110,8 +110,8 @@ class CreateWedding extends React.Component {
                             placeholder='Enter valid password'
                             value={password}
                             onChange={this.handleChange}
-                            className='createWedding'
-                        />
+                            className="create-wedding-input"
+                        /><br />
                         <label>Confirm-Password:</label>
                         <input
                             type='password'
@@ -120,10 +120,10 @@ class CreateWedding extends React.Component {
                             placeholder='Enter password again'
                             value={confirmPassword}
                             onChange={this.handleChange}
-                            className='createWedding'
-                        />
+                            className="create-wedding-input"
+                        /><br />
 
-                        <label>Wedding Date</label>
+                        <label>Wedding Date:</label>
                         <input
                             type='text'
                             name='weddingDate'
@@ -131,31 +131,31 @@ class CreateWedding extends React.Component {
                             placeholder='dd/mm/yyyy'
                             value={weddingDate}
                             onChange={this.handleChange}
-                            className='createWedding'
-                        />
+                            className="create-wedding-input"
+                        /><br />
                         <label>Groom:</label>
                         <input
                             type='text'
                             name='groom'
                             id='groom'
-                            placeholder='Enter groom firstname'
+                            placeholder='Enter groom`s name'
                             value={groom}
                             onChange={this.handleChange}
-                            className='createWedding'
-                        />
+                            className="create-wedding-input"
+                        /><br />
                         <label>Bride:</label>
                         <input
                             type='text'
                             name='bride'
                             id='bride'
-                            placeholder='Enter bride firstname'
+                            placeholder='Enter bride`s name'
                             value={bride}
                             onChange={this.handleChange}
-                            className='createWedding'
-                        />
+                            className="create-wedding-input"
+                        /><br />
                         <input
                             type="submit"
-                            value="Create Wedding"
+                            value="Create"
                             className="button" />
                     </div>
                 </form>
@@ -177,4 +177,4 @@ const CreateWeddingWithContext = (props) => {
         </UserConsumer>
     )
 }
-export default CreateWeddingWithContext
+export default CreateWeddingWithContext;

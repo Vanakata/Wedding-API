@@ -1,24 +1,28 @@
 import React from 'react';
 import { UserConsumer } from '../components/User-Context';
 import { Link } from 'react-router-dom';
+import Fade from 'react-reveal/Fade'
 //import AvailableWeddingCards from '../components/home/available-wedding-cards';
 
-const HomePage = ({ username, isLoggedIn,  isAdmin }) => {
+const HomePage = ({ username, isLoggedIn, isAdmin }) => {
     return (
         <main>
-            <div>
+            <div className="welcome-container">
                 {
                     isLoggedIn
                         ?
                         <div>
-                            <div>
-                                <p>Welcome back,{username}</p>
-                            </div>
+
+                            <Fade top cascade>
+                                <div>
+                                    <p>Welcome back, {username}!</p>
+                                </div>
+                            </Fade>
+
+
                         </div>
                         :
-                        <ul>
-                            <h2>Welcome to our wedding world! These are our wedding invitations </h2>
-                        </ul>
+                        null
                 }
                 {/* <AvailableWeddingCards/> */}
             </div>

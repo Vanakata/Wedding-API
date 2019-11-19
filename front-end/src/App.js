@@ -5,10 +5,11 @@ import NavBar from "./components/NavBar";
 import Login from '../src/view/login-page';
 import HomePage from '../src/view/home-page'
 import CreateWedding from '../src/view/create-wedding-page';
-import AllWeddings from '../src/components/home/admin/get-all-weddings'
+import AllWeddings from './view/get-all-weddings'
 import WeddingDetails from './view/wedding-details-page'
-
-
+import GuestList from './view/guest-list/guest-list-page';
+import CreateGuestListWithContext from './view/guest-list/create-guest-list'
+import Fade from 'react-reveal/Fade'
 import 'filepond/dist/filepond.min.css';
 // import './css/animate.css';
 // import './css/bootstrap.css';
@@ -17,7 +18,7 @@ import 'filepond/dist/filepond.min.css';
 // import './css/magnific-popup.css';
 // import './css/owl.carousel.min.css';
 // import './css/owl.theme.default.min.css';
-// import "./css/style.css"
+import "./css/style.css"
 
 class App extends Component {
   constructor(props) {
@@ -57,10 +58,11 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path = "/admin/create" component ={CreateWedding}/>
-                <Route exact path = "/admin/all" component ={AllWeddings}/>
-                <Route exact path = "/admin/all/:id" component={WeddingDetails}/>
-                 
+                <Route exact path="/admin/create" component={CreateWedding} />
+                <Route exact path="/admin/all" component={AllWeddings} />
+                <Route exact path="/admin/all/:id" component={WeddingDetails} />
+                <Route exact path="/guest-list" component={GuestList} />
+                <Route exact path="/guest-list/create" component={CreateGuestListWithContext} />
               </Switch>
             </UserProvider>
           </Fragment>

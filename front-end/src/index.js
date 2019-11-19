@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('fh5co-loader'));
+ReactDOM.render(<App />, document.querySelector('.main-container'));

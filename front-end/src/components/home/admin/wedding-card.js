@@ -9,12 +9,22 @@ class WeddingCard extends Component {
 
         const { wedding } = this.props;
         if (wedding.roles[0] === 'admin') {
+
             return null;
         } else {
 
             return (
-                <div>
-                    <Link to={`/admin/all/${wedding._id}`}><h5>{wedding.username}</h5></Link>
+                <div className="wedding">
+                    <ul>
+                        <li>
+                            <Link to={`/admin/all/${wedding._id}`}>
+                                <h5>
+                                    {wedding.username}
+                                </h5>
+                            </Link>
+                        </li>
+                    </ul>
+
                 </div>
             )
         }

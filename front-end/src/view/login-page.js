@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import AuthenticationService from '../components/services/authentication-service';
 import { UserConsumer } from '../components/User-Context';
-
+import Fade from 'react-reveal/Fade';
 
 class Login extends Component {
     constructor(props) {
@@ -24,9 +24,8 @@ class Login extends Component {
         event.preventDefault();
         const { username, password } = this.state;
         const { updateUser } = this.props;
-        debugger;
         const credentials = {
-            username:username.toLowerCase(),
+            username: username.toLowerCase(),
             password
         }
         this.setState({
@@ -69,7 +68,8 @@ class Login extends Component {
             )
         } else {
             return (
-                <div>
+                <Fade left cascade>
+                    <div id="login-container">
                     <h1>Login</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div>
@@ -81,7 +81,7 @@ class Login extends Component {
                                 placeholder="Enter your username"
                                 value={username}
                                 onChange={this.handleChange}
-                                className="loginPage"
+                                className="login-input"
                             />
                         </div>
                         <div>
@@ -93,23 +93,26 @@ class Login extends Component {
                                 placeholder="Enter your password"
                                 value={password}
                                 onChange={this.handleChange}
-                                className="loginPage"
+                                className="login-input"
                             />
                         </div>
-                        <input
-                            type="submit"
-                            value="Login"
-                            className="button"
-                        />
+                        <div>
+                            <input
+                                type="submit"
+                                value="Login"
+                                className="button"
+                            />
+                        </div>
                     </form>
                 </div>
+                </Fade>
             );
         };
     };
 };
 
 const LoginWithContext = (props) => {
-    
+
     return (
         <UserConsumer>
             {
