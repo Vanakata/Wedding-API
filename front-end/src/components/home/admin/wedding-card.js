@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WeddingService from '../../services/wedding-service';
-import { UserConsumer } from '../../User-Context';
+import { UserConsumer } from '../../User-Context/User-Context';
 import { Link } from 'react-router-dom'
 
 class WeddingCard extends Component {

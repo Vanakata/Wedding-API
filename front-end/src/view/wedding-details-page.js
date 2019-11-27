@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import WeddingService from '../components/services/wedding-service';
-import { UserConsumer } from '../components/User-Context';
+import { UserConsumer } from '../components/User-Context/User-Context';
+import Bounce from 'react-reveal/Bounce';
 // import UploadImage from '../components/upload-data/upload-data-filepond';
 import axios from 'axios';
 
@@ -17,22 +18,22 @@ class WeddingDetails extends Component {
         }
     }
     static service = new WeddingService();
-    
+
     onChangeHandler = event => {
         this.setState({
-          selectedFile: event.target.files[0],
-          loaded: 0,
+            selectedFile: event.target.files[0],
+            loaded: 0,
         })
-      }
-      onClickHandler = () => {
-        
+    }
+    onClickHandler = () => {
+
         const data = new FormData()
         data.append('file', this.state.selectedFile)
         axios.post("http://localhost:5000/upload/upload", data)
-          .then(res => {
-            console.log(res.statusText)
-          })
-      }
+            .then(res => {
+                console.log(res.statusText)
+            })
+    }
 
     render() {
         const { wedding } = this.state;
@@ -47,8 +48,8 @@ class WeddingDetails extends Component {
         }
         return (
             <Fragment>
-                <div className="container">
-                    <div className="row">
+                <div className="wedding-details-container">
+                    {/* <div className="row">
                         <div className="col-md-6">
                             <form method="post" action="#" id="#">
                                 <div className="form-group files">
@@ -58,16 +59,20 @@ class WeddingDetails extends Component {
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    <div>
-                        <h1>{wedding.username}`s wedding</h1>
-                        <h5>Date of wedding: {wedding.weddingDate}</h5>
-                        <h5>Happy groom: {wedding.groom}</h5>
-                        <h5>Adorable bride: {wedding.bride}</h5>
-                    </div>
-                    <div>
-                        <h5>Pictures:</h5>
-                    </div>
+                    </div> */}
+
+                    <Bounce top>
+
+                        <div className="wedding-details">
+                            <img src={require("../images/blackboard.png")} alt="blackboard" />
+                            <h1>{wedding.username}`s wedding</h1>
+                            <h5 id="wedding-date">Date of wedding: {wedding.weddingDate}</h5>
+                            <h5 id="groom-name">Happy groom: {wedding.groom}</h5>
+                            <h5 id="bride-name">Adorable bride: {wedding.bride}</h5>
+
+                        </div>
+                    </Bounce>
+
                 </div>
             </Fragment>
         )

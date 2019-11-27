@@ -1,78 +1,56 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { UserConsumer } from '../../components/User-Context';
+import { UserConsumer } from '../../components/User-Context/User-Context';
 import GuestListService from '../../components/services/guest-list-service';
 
 class CreateGuestList extends Component {
-
     constructor(props) {
         super(props);
         const wedding = JSON.parse(localStorage.user)
         this.state = {
-            firstName: "",
+            firstname: "",
             lastName: "",
-            isComing: false,
-            weddingId: wedding.id,
             error: "",
-            isCreated:false
-
+            weddingId: wedding.id,
+            isCreated: false,
         }
+
     }
     static service = new GuestListService();
 
     handleChange = ({ target }) => {
-        this.setState({
-            [target.name]: target.value
-        });
+        this.setState({ [target.name]: target.value })
     }
     handleSubmit = (event) => {
-       
+
         event.preventDefault();
-        const { firstName, lastName, isComing, weddingId } = this.state;
-        const credentials = {
-            firstName,
-            lastName,
-            isComing,
-            weddingId
-        }
+        let { firstName, lastName, weddingId } = this.state;
+        const credentials = { firstName, lastName, weddingId };
+
         this.setState({
-            error: ''
+            error: ""
         }, async () => {
             try {
+
                 const result = await CreateGuestList.service.create(credentials);
                 if (!result.success) {
                     const errors = Object.values(result.errors).join(" ");
                     throw new Error(errors);
                 }
-                alert("Guest created successfully");
-                this.setState({
-                    isCreated:true
-                })
+                this.setState({ isCreated: true })
+
             } catch (error) {
-                alert(error);
+                console.log(error);
             }
         })
     }
-    render() {
-        const { firstName, lastName, error,isCreated} = this.state;
-        const { isLoggedIn } = this.props;
 
-        if (!isLoggedIn) {
-            return (
-                <Redirect to='/login' />
-            );
-        }else if(isCreated){
-            return (
-                <Redirect to="/guest-list" />
-            )
-        }
+    render() {
+        let { firstName, lastName, error } = this.state;
+
+
         return (
             <div>
-                {
-                    error.length ?
-                        <div>Something went wrong:{error}</div>
-                        : null
-                }
                 <h1>Here you can make, your own guest list. </h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
@@ -99,21 +77,29 @@ class CreateGuestList extends Component {
                             className="button" />
                     </div>
                 </form>
-            </div>
-        )
+                {
+                    this.state.isCreated ?
+                        <div className="success-message">
+                            <p>Guest added successfuly</p>
+                        </div>
+                        :
+                        null
+                }
+            </div>)
     }
 }
-const CreateGuestListWithContext = (props) => {
+const CeateGuestListWithContext = (props) => {
     return (
         <UserConsumer>
             {
                 ({ isLoggedIn }) => (
                     <CreateGuestList
                         {...props}
-                        isLoggedIn={isLoggedIn} />
+                        isLoggedIn={isLoggedIn}
+                    />
                 )
             }
         </UserConsumer>
     )
 }
-export default CreateGuestListWithContext;
+export default CeateGuestListWithContext;

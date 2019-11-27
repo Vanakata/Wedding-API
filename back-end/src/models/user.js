@@ -53,11 +53,11 @@ module.exports.seedAdminUser = () => {
                 return;
             } else {
                 let salt = encryption.generateSalt();
-                let password = encryption.hashedPassword(salt,);
+                let password = encryption.hashedPassword(salt,"wedding123");
                 User.create({
 
-                    email: "",
-                    username: '',
+                    email: "admin@abv.bg",
+                    username: "vessy",
                     password,
                     salt,
                     roles: ['admin'],

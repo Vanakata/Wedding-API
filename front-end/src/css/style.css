@@ -18,8 +18,7 @@
         background-size: cover;
         background-attachment: fixed;
     }
-    .main-container {
-        display: flex;
+    #root {
         flex-wrap: wrap;
     }
     .App {
@@ -179,7 +178,7 @@
         background-attachment: fixed;
         height: 80px;
     }
-    .main-container {
+    #root {
         display: flex;
         flex-wrap: wrap;
     }
@@ -209,7 +208,7 @@
         background-size: cover;
         background-attachment: fixed;
     }
-    .main-container {
+    #root {
         display: flex;
         flex-wrap: wrap;
         width: 960px;
@@ -466,6 +465,74 @@
         position: relative;
         right: 0px;
         color: black;
+    }
+    .wedding-details img {
+        position: relative;
+        height: 50%;
+        width: 100%;
+        background-position: center;
+        align: middle;
+    }
+    .wedding-details {
+        
+        margin: auto auto;
+        width: 700px;
+        position: fixed;
+        left: 30%;
+        top: 20%;
+        float: left;
+        color: black;
+        text-align: center;
+    }
+    .wedding-details h1 {
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        font-size: 50px;
+        color: whitesmoke;
+        font-family: 'Great Vibes', cursive;
+    }
+    .wedding-details h5 {
+        position: absolute;
+        color: whitesmoke;
+        font-family: 'Great Vibes', cursive;
+        font-size: 35px;
+    }
+    #wedding-date {
+        top: 75%;
+        left: 15%;
+    }
+    #groom-name {
+        top: 55%;
+        left: 15%;
+    }
+    #bride-name {
+        top: 35%;
+        left: 15%;
+    }
+    @keyframes myAnimation{
+        0%{
+          opacity: 1;
+          transform: rotateX(90deg);
+        }
+        50%{
+          opacity: 0.5;
+          transform: rotateX(0deg);
+        }
+        100%{
+          display: none;
+          opacity: 0;
+          transform: rotateX(90deg);
+        }
+      }
+      .success-message{
+        animation-name: myAnimation;
+        animation-duration: 2000ms;
+        animation-fill-mode: forwards;
+    }
+    .guest-container {
+        border-style:solid,
+        
     }
 }
 

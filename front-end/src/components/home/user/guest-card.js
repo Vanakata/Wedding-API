@@ -1,47 +1,63 @@
 import React, { Component } from 'react';
-import { UserConsumer } from '../../User-Context';
-import GuestListService from '../../services/guest-list-service';
+import GuestService from '../../services/guest-list-service';
 
 class GuestCard extends Component {
-
-    static service = new GuestListService();
-
-    render() {
-        const { guest } = this.props;
-        let status = guest.isComing;
-        if (!guest.length) {
-            return null;
-        } else {
-
-            if (!status) {
-                status = "No"
-            } else {
-                status = "Yes"
-            }
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '',
+            error: '',
         }
-
-        return (
-            <div>
-                <div>
-                    <label>First name:</label>
-                    <h5>{guest.firstName} {guest.lastName}</h5>
-                    <h5><label>Presence:</label>{status}</h5>
-
-                </div>
-            </div>
-        )
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleOptionChange = this.handleOptionChange.bind(this);
     }
 
-}
-const GuestCardWithContext = (props) => {
-    return (
-        <UserConsumer>
-            {
-                ({ isLoggedIn }) => (
-                    <GuestCard {...props} isLoggedIn={isLoggedIn} />
-                )
+    static service = new GuestService();
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+
+        let credentials = this.state.value;
+        const id = this.props.guest._id;
+        
+        this.setState({ error: '' }, async () => {
+            try {
+                debugger;
+                const result = await GuestCard.service.statusChange(id, {isComing:credentials});
+                if (!result.success) {
+                    const errors = Object.values(result.errors).join(" ");
+                    throw new Error(errors)
+                } else {
+                    console.log("Status updated sucessffuly");
+                }
+            } catch (error) {
+                console.log(error);
             }
-        </UserConsumer>
-    )
+        })
+    }
+
+    handleOptionChange = (event) => {
+        this.setState({ value: event.target.value });
+    }
+    render() {
+
+        const { guest } = this.props;
+   
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <div>
+                    <h5>{guest.firstName} {guest.lastName} {guest.isComing}</h5>
+                    <select onChange={this.handleOptionChange}>
+                        <option value="None">--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+
+                    <input type="submit" className="button" />
+                </div>
+            </form>
+        )
+    }
 }
-export default GuestCardWithContext;
+export default GuestCard;

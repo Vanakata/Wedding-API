@@ -1,8 +1,7 @@
 import React from 'react';
-import { UserConsumer } from '../components/User-Context';
-import { Link } from 'react-router-dom';
+import { UserConsumer } from '../components/User-Context/User-Context';
 import Fade from 'react-reveal/Fade'
-//import AvailableWeddingCards from '../components/home/available-wedding-cards';
+
 
 const HomePage = ({ username, isLoggedIn, isAdmin }) => {
     return (
@@ -24,7 +23,7 @@ const HomePage = ({ username, isLoggedIn, isAdmin }) => {
                         :
                         null
                 }
-                {/* <AvailableWeddingCards/> */}
+                
             </div>
         </main>
     )

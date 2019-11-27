@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import AuthenticationService from '../components/services/authentication-service';
-import { UserConsumer } from '../components/User-Context';
+import { UserConsumer } from '../components/User-Context/User-Context';
 import Fade from 'react-reveal/Fade';
 
 class Login extends Component {

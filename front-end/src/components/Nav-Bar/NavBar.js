@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { UserConsumer } from "../components/User-Context";
+import { UserConsumer } from "../User-Context/User-Context";
 import { NavLink } from "react-router-dom"
 import { Fade, Zoom } from 'react-reveal'
 
@@ -34,7 +34,8 @@ const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
                                             <Fade right>
                                                 <ul>
                                                     <NavLink to="/" onClick={logout}><li>Logout</li></NavLink>
-                                                    <NavLink to="/guest-list"><li>Guest List</li></NavLink>
+                                                    <NavLink to="/guest-list/create"><li>Add guest</li></NavLink>
+                                                    <NavLink to="/guest-list/all"><li>Guest List</li></NavLink>
                                                     <NavLink to="/" ><li>Gallery</li></NavLink>
                                                     <NavLink to="/profile"><li>My Profile</li></NavLink>
 

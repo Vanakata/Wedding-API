@@ -10,11 +10,11 @@ let guestSchema = new mongoose.Schema({
         required: true
     },
     isComing: {
-        type: Boolean, default: false
+        type: mongoose.SchemaTypes.String, default:"Not checked"
 
     },
     weddingId: {
-        type: String, default: ""
+        type: mongoose.Schema.Types.ObjectId, required: true
     }
 });
 

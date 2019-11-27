@@ -4,10 +4,10 @@ const authCheck = require('../configuration/auth-check');
 
 const router = new express.Router();
 
-router.post('/create', (req, res) => {
+router.post('/create', authCheck, (req, res) => {
 
     const guestObj = req.body;
-    
+
     guestList
         .create(guestObj)
         .then((createGuest) => {
@@ -18,7 +18,7 @@ router.post('/create', (req, res) => {
             })
         })
         .catch((err) => {
-            
+
             let message = "Something went wrong! Check forms for errors";
             return res.status(400).json({
                 success: false,
@@ -28,14 +28,44 @@ router.post('/create', (req, res) => {
         })
 
 });
+router.post('/all/:id', (req, res) => {
+   
+    const guestId = req.params.id;
+    const isComing = req.body;
+    
+    guestList.findById(guestId).then(newStatus => {
+        console.log(newStatus.isComing);
+        console.log(isComing.isComing);
+        
+        newStatus.isComing = isComing.isComing;
+        newStatus.save()
+            .then(newStatus => {
+                res.status(200).json({
+                    success: true,
+                    message: "Status updated sucessffuly!",
+                    data: newStatus,
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+                const message = "Something went wrong.Status not updated"
+                return res.status(304).json({
+                    success: false,
+                    message,
+                })
+            })
+    })
+})
 
-router.get('/all', (req, res) => {
-    guestList.find()
+router.get('/all', authCheck, (req, res) => {
+
+
+    guestList.find({ weddingId: req.user._id })
         .then(guests => {
             if (guests.length > 0) {
 
                 res.status(200).json(guests)
-            }else{
+            } else {
                 return res.status(404).json("Guest list is empty");
             }
         })
