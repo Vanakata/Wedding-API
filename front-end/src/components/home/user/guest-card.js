@@ -5,11 +5,14 @@ class GuestCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
             value: '',
             error: '',
+            isUpdate: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleOptionChange = this.handleOptionChange.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     static service = new GuestService();
@@ -17,24 +20,50 @@ class GuestCard extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-
         let credentials = this.state.value;
+
         const id = this.props.guest._id;
-        
-        this.setState({ error: '' }, async () => {
+
+        this.setState({
+            error: '',
+            isUpdate: true,
+        }, async () => {
             try {
-                debugger;
-                const result = await GuestCard.service.statusChange(id, {isComing:credentials});
+                const result = await GuestCard.service.statusChange(id, { isComing: credentials });
                 if (!result.success) {
                     const errors = Object.values(result.errors).join(" ");
                     throw new Error(errors)
                 } else {
-                    console.log("Status updated sucessffuly");
+                    this.setState({ isUpdate: true })
+
                 }
             } catch (error) {
                 console.log(error);
             }
         })
+    }
+    handleDelete = (event) => {
+
+        event.preventDefault();
+        const id = this.props.guest._id;
+        this.setState({ error: '' }, async () => {
+            try {
+                const result = await GuestCard.service.delete(id);
+                if (!result.success) {
+                    const errors = Object.values(result.errors).join(" ");
+                    throw new Error(errors)
+                } else {
+
+                    window.location.reload();
+
+
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
+        })
+
     }
 
     handleOptionChange = (event) => {
@@ -43,20 +72,35 @@ class GuestCard extends Component {
     render() {
 
         const { guest } = this.props;
-   
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <h5>{guest.firstName} {guest.lastName} {guest.isComing}</h5>
-                    <select onChange={this.handleOptionChange}>
-                        <option value="None">--</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
 
-                    <input type="submit" className="button" />
-                </div>
-            </form>
+        return (
+            <div id="guest-on-line">
+                <form onSubmit={this.handleSubmit}>
+                    <div>
+                        <div>
+                            {
+                                this.state.isUpdate === true
+                                    ?
+                                    <h6 id="status">{this.state.value}</h6>
+                                    :
+                                    <h6 id="status">{guest.isComing}</h6>
+                            }
+                            <h5>{guest.firstName} {guest.lastName}</h5>
+                            <div>
+                                <select className="select-box" onChange={this.handleOptionChange}>
+                                    <option value="None">--</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="guest-button">
+                            <input type="submit" className="button" value="Confirm attendence" id="confirm-status" />
+                            <input onClick={this.handleDelete} type="button" className="button" value="Delete guest" id="delete-guest" />
+                        </div>
+                    </div>
+                </form>
+            </div>
         )
     }
 }

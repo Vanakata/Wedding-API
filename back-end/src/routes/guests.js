@@ -42,7 +42,7 @@ router.post('/all/:id', (req, res) => {
             .then(newStatus => {
                 res.status(200).json({
                     success: true,
-                    message: "Status updated sucessffuly!",
+                    message: "Status updated sucessffully!",
                     data: newStatus,
                 })
             })
@@ -71,9 +71,9 @@ router.get('/all', authCheck, (req, res) => {
         })
 });
 
-router.delete('/delete/:id', authCheck, (req, res) => {
+router.delete('/all/delete/:id', authCheck, (req, res) => {
     const id = req.params.id;
-
+console.log(id);
     guestList.findById(id)
         .then((guest) => {
             guest.remove()

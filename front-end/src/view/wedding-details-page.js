@@ -37,39 +37,26 @@ class WeddingDetails extends Component {
 
     render() {
         const { wedding } = this.state;
-        // const{username} = this.props;
-
+        
         if (wedding === undefined) {
             return (
                 <div>
-                    <h2>Wedding does not exist</h2>
+                    <h2>Wedding does not exists.</h2>
                 </div>
             )
         }
         return (
             <Fragment>
                 <div className="wedding-details-container">
-                    {/* <div className="row">
-                        <div className="col-md-6">
-                            <form method="post" action="#" id="#">
-                                <div className="form-group files">
-                                    <label>Upload Your File </label>
-                                    <input type="file" className="form-control" multiple="" name="file" onChange={this.onChangeHandler} />
-                                    <button type="button" className="btn btn-sucess btn-block" onClick={this.onClickHandler}>Upload</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> */}
-
                     <Bounce top>
-
                         <div className="wedding-details">
-                            <img src={require("../images/blackboard.png")} alt="blackboard" />
+                            
                             <h1>{wedding.username}`s wedding</h1>
-                            <h5 id="wedding-date">Date of wedding: {wedding.weddingDate}</h5>
-                            <h5 id="groom-name">Happy groom: {wedding.groom}</h5>
-                            <h5 id="bride-name">Adorable bride: {wedding.bride}</h5>
-
+                            <h5>Username: {wedding.username}</h5>
+                            <h5>E-mail: {wedding.email}</h5>
+                            <h5>Date of wedding: {wedding.weddingDate}</h5>
+                            <h5>Happy groom: {wedding.groom}</h5>
+                            <h5>Adorable bride: {wedding.bride}</h5>
                         </div>
                     </Bounce>
 

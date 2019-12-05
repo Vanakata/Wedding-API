@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import WeddingService from '../components/services/wedding-service';
 import WeddingCard from '../components/home/admin/wedding-card';
+import RubberBand from 'react-reveal/RubberBand';
 
 class AllWeddings extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class AllWeddings extends Component {
         if (!weddings.length) {
             return (
                 <div>
-                    <h2 className="white">No weddings at the moment</h2>
+                    <RubberBand><h2 className="white">No weddings at the moment</h2></RubberBand>
                 </div>
             )
         }

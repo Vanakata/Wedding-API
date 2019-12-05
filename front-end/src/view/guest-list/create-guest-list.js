@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { UserConsumer } from '../../components/User-Context/User-Context';
 import GuestListService from '../../components/services/guest-list-service';
-
+import Fade from 'react-reveal';
 class CreateGuestList extends Component {
     constructor(props) {
         super(props);
         const wedding = JSON.parse(localStorage.user)
         this.state = {
-            firstname: "",
+            firstName: "",
             lastName: "",
             error: "",
             weddingId: wedding.id,
@@ -37,7 +36,16 @@ class CreateGuestList extends Component {
                     const errors = Object.values(result.errors).join(" ");
                     throw new Error(errors);
                 }
-                this.setState({ isCreated: true })
+                this.setState({
+                    isCreated: true,
+                    firstName: "",
+                    lastName: "",
+                })
+                setTimeout(() => {
+                    this.setState({
+                        isCreated: false
+                    });
+                }, 3000);
 
             } catch (error) {
                 console.log(error);
@@ -50,43 +58,52 @@ class CreateGuestList extends Component {
 
 
         return (
-            <div>
-                <h1>Here you can make, your own guest list. </h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>First name:</label>
+            <div className="create-guest-container">
+                <h1>Here you can add guests to your list: </h1>
+                <div className="create-guest">
+                    <form onSubmit={this.handleSubmit}>
+                        <label>First name:</label><br />
+
                         <input
                             type="text"
                             name="firstName"
                             id="firstName"
                             value={firstName}
                             onChange={this.handleChange}
-                            className="createGuests" />
+                            className="guest-names" /><br />
 
-                        <label>Last name:</label>
+                        <label>Last name:</label><br />
                         <input
                             type="text"
                             name="lastName"
                             id="lastName"
                             value={lastName}
                             onChange={this.handleChange}
-                            className="createGuests" />
+                            className="guest-names" />
                         <input
                             type="submit"
                             value="Create"
-                            className="button" />
-                    </div>
-                </form>
+                            className="create-guest-button" />
+                    </form>
+                </div>
                 {
+
                     this.state.isCreated ?
-                        <div className="success-message">
-                            <p>Guest added successfuly</p>
+
+                        <Fade right ><div className="success-message">
+                            <p>Guest added successfully</p>
                         </div>
+                        </Fade>
+
                         :
                         null
                 }
+
+
+
             </div>)
     }
+
 }
 const CeateGuestListWithContext = (props) => {
     return (

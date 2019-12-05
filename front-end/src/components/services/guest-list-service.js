@@ -5,7 +5,6 @@ class GuestListService {
         this.baseUrl = 'http://localhost:5000/guest-list';
         this.allGuestsUrl = `${this.baseUrl}/all/`;
         this.createGuestUrl = `${this.baseUrl}/create`;
-        this.deleteGuestUrl = `${this.baseUrl}/delete`;
 
     }
     getAllGuests(credentials) {
@@ -14,8 +13,9 @@ class GuestListService {
     create(credentials) {
         return post(this.createGuestUrl, credentials);
     }
-    delete(id, credentials) {
-        return remove(`${this.deleteGuestUrl}${id}`, credentials);
+    delete(id) {
+        console.log(id);
+        return remove(`${this.allGuestsUrl}delete/${id}`);
     }
     statusChange(id, credentials) {
         return post(`${this.allGuestsUrl}${id}`, credentials)

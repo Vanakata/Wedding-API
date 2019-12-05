@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { UserConsumer } from "../User-Context/User-Context";
-import { NavLink } from "react-router-dom"
-import { Fade, Zoom } from 'react-reveal'
-
+import { NavLink } from "react-router-dom";
+import { Fade } from 'react-reveal';
+import AdminRoute from '../User-Context/Admin-Route';
 
 const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
     return (
@@ -12,54 +12,118 @@ const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
                     <Fragment >
                         <Fragment >
                             <Fragment >
-                                <Zoom><NavLink id="greeting-message" to="/"><strong>Welcome to My Wedding.</strong></NavLink></Zoom>
+                                {
+                                    isAdmin
+                                        ?
+                                        <NavLink id="greeting-message" to="/"><strong>Welcome to My Wedding.</strong></NavLink>
+                                        :
+                                        <NavLink id="greeting-message" to="/user/wedding-homepage"><strong>Welcome to My Wedding.</strong></NavLink>
+
+                                }
                             </Fragment>
                         </Fragment>
                         <div id="nav-container">
-                        {
-                            isLoggedIn ?
 
-                                <Fragment >
-                                    
-                                    {
-                                        isAdmin ?
-                                            <ul className="admin-navigation">
+                            {
+                                isLoggedIn ?
 
-                                                <NavLink to="/" onClick={logout}><li>Logout</li></NavLink>
-                                                <NavLink to="/admin/all"><li>All weddings</li></NavLink>
-                                                <NavLink to="/admin/create"><li>New Wedding</li></NavLink>
-                                            </ul>
+                                    <Fragment >
 
-                                            :
-                                            <Fade right>
-                                                <ul>
-                                                    <NavLink to="/" onClick={logout}><li>Logout</li></NavLink>
-                                                    <NavLink to="/guest-list/create"><li>Add guest</li></NavLink>
-                                                    <NavLink to="/guest-list/all"><li>Guest List</li></NavLink>
-                                                    <NavLink to="/" ><li>Gallery</li></NavLink>
-                                                    <NavLink to="/profile"><li>My Profile</li></NavLink>
+                                        {
+                                            isAdmin ?
+                                                <Fade right >
+                                                    <div className="admin-navigation">
+                                                        <div className="wrapper-inner-tab-backgrounds">
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/" onClick={logout}><span>Exit Page</span></NavLink>
+                                                                </div>
+                                                            </div>
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/admin/all"><span>All weddings</span></NavLink>
+                                                                </div>
+                                                            </div>
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/admin/create"><span>New Wedding</span></NavLink>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </Fade>
+                                                :
+                                                <Fade right >
+                                                    <div className="user-navigation">
+                                                        <div className="wrapper-inner-tab-backgrounds">
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/" onClick={logout}><span>Exit Page</span></NavLink>
+                                                                </div>
+                                                            </div>
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/guest-list/create" ><span>Add guest</span></NavLink>
 
-                                                </ul>
-                                            </Fade>
-                                    }
-                                </Fragment>
+                                                                </div>
+                                                            </div>
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/guest-list/all"><span>Guest List</span></NavLink>
+                                                                </div>
+                                                            </div>
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/" ><span>Gallery</span></NavLink>
+                                                                </div>
+                                                            </div>
+                                                            <div className="wrapper-inner-tab-background">
+                                                                <div className="sim-button button11">
+                                                                    <NavLink to="/user/wedding-homepage"><span>My Profile</span></NavLink>
+                                                                </div>
+                                                            </div>
 
-                                :
-                                <Fragment >
-                                    <Fade right>
-                                        <ul className="not-logged-user-nav">
-                                            <NavLink to="contact.html"><li>Contact us</li></NavLink>
-                                            <NavLink to="contact.html"><li>Who we are</li></NavLink>
-                                            <NavLink to="contact.html"><li>What we offer</li></NavLink>
-                                            <NavLink to="contact.html"><li>Gallery</li></NavLink>
-                                            <NavLink to="/login"><li>Login</li></NavLink>
+                                                        </div>
 
-                                        </ul>
-                                    </Fade>
-                                </Fragment>
+                                                    </div>
+                                                </Fade>
+                                        }
+                                    </Fragment>
+
+                                    :
+                                    <Fragment >
+                                        <Fade right>
+                                            <div className="unlogged-user">
+                                                <div className="wrapper-inner-tab-backgrounds">
+                                                    <div className="wrapper-inner-tab-background">
+                                                        <div className="sim-button button11">
+                                                            <NavLink to="/" ><span>Gallery</span></NavLink>
+                                                        </div>
+                                                    </div>
+                                                    <div className="wrapper-inner-tab-background">
+                                                        <div className="sim-button button11">
+                                                            <NavLink to="/"><span>Who are we</span></NavLink>
+                                                        </div>
+                                                    </div>
+                                                    <div className="wrapper-inner-tab-background">
+                                                        <div className="sim-button button11">
+                                                            <NavLink to="/" ><span>Our purpose</span></NavLink>
+                                                        </div>
+                                                    </div>
+                                                    <div className="wrapper-inner-tab-background">
+                                                        <div className="sim-button button11">
+                                                            <NavLink to="/login"><span>Login</span></NavLink>
+                                                        </div>
+                                                    </div>
 
 
-                        }
+                                                </div>
+                                            </div>
+                                        </Fade>
+                                    </Fragment>
+
+
+                            }
                         </div>
 
                     </Fragment>

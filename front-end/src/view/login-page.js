@@ -60,51 +60,55 @@ class Login extends Component {
     };
     render() {
         const { username, password } = this.state;
-        const { isLoggedIn } = this.props;
+        const { isLoggedIn,isAdmin } = this.props;
 
         if (isLoggedIn) {
-            return (
-                <Redirect to='/' />
-            )
+            
+            if(isAdmin){
+                return (<Redirect to='/admin/all'/>)
+            }
+                    return (
+                        <Redirect to='/user/wedding-homepage' />
+                    )
         } else {
             return (
                 <Fade left cascade>
                     <div id="login-container">
-                    <h1>Login</h1>
-                    <form onSubmit={this.handleSubmit}>
-                        <div>
-                            <label>Username:</label>
-                            <input
-                                type="text"
-                                name="username"
-                                id="username"
-                                placeholder="Enter your username"
-                                value={username}
-                                onChange={this.handleChange}
-                                className="login-input"
-                            />
-                        </div>
-                        <div>
-                            <label>Password:</label>
-                            <input
-                                type="password"
-                                name="password"
-                                id="password"
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={this.handleChange}
-                                className="login-input"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="submit"
-                                value="Login"
-                                className="button"
-                            />
-                        </div>
-                    </form>
-                </div>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="login-text">
+                                <h1>Login</h1>
+                                <label className="login-input">Username:</label>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    id="username-input"
+                                    placeholder="Enter your username"
+                                    value={username}
+                                    onChange={this.handleChange}
+                                    className="login-input"
+                                />
+                                <div>
+                                    <label className="login-input">Password:</label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password-input"
+                                        placeholder="Enter your password"
+                                        value={password}
+                                        onChange={this.handleChange}
+                                        className="login-input"
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="submit"
+                                        value="Login"
+                                        className="login-input-btn"
+                                    />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </Fade>
             );
         };
@@ -116,11 +120,12 @@ const LoginWithContext = (props) => {
     return (
         <UserConsumer>
             {
-                ({ isLoggedIn, updateUser }) => (
+                ({ isLoggedIn, updateUser,isAdmin }) => (
                     <Login
                         {...props}
                         isLoggedIn={isLoggedIn}
                         updateUser={updateUser}
+                        isAdmin={isAdmin}
                     />
                 )
             }

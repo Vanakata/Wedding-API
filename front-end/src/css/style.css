@@ -1,4 +1,4 @@
-* {
+*, *:before, *:after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,532 +8,670 @@
     box-sizing: inherit;
 }
 
-/* Mobile Styles */
+/* body, html {
+    height: 100%;
+} */
 
-@media only screen and (max-width: 400px) {
-    body {
-        background-image: url("../images/mobile.jpg");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        background-attachment: fixed;
-    }
-    #root {
-        flex-wrap: wrap;
-    }
-    .App {
-        width: 100%;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .background-image {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 80px;
-    }
-    a {
-        text-decoration: none;
-        color: whitesmoke
-    }
-    a:hover {
-        display: inline;
-        vertical-align: middle;
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-transition-duration: 0.5s;
-        transition-duration: 0.5s;
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-        -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-        transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-        color: lightseagreen;
-    }
-    ul {
-        list-style-type: none;
-    }
-    ::placeholder {
-        color: black bold;
-        position: relative;
-        left: 16%;
-    }
-    .button {
-        height: 30px;
-        width: 100px;
-        border-radius: 25px;
-        background-color: whitesmoke;
-        cursor: pointer;
-    }
-    #header {
-        position: absolute;
-        top: 1%;
-    }
-    #navigation-container {
-        position: absolute;
-        right: 50%;
-    }
-    #navigation-container, ul, li {
-        display: inline;
-        float: right;
-        padding-top: 30px;
-        padding-right: 10px;
-        padding-left: 5px;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 10px;
-        position: relative;
-        left: -1%;
-    }
-    #greeting-message {
-        position: absolute;
-        left: 10%;
-        font-family: 'Great Vibes', cursive;
-        font-size: 20px;
-    }
-    #login-container {
-        height: 150px;
-        width: 400px;
-        position: absolute;
-        left: 25%;
-        top: 30%;
-        background-color: transparent;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 15px;
-    }
-    #login-container h1 {
-        position: relative;
-        left: 35%;
-        top: 10%;
-        color: black;
-        font-size: 20px;
-    }
-    #login-container div {
-        position: relative;
-        padding-top: 10%;
-        padding-left: 10%;
-    }
-    #login-container input.button {
-        position: relative;
-        left: 15%;
-        background-color: transparent;
-        color: whitesmoke;
-    }
-    /* #login-container input.button:hover {
-        background-color: whitesmoke;
-        color: lightblue;
-    } */
-    #login-container input.loginPage {
-        border-radius: 10px;
-        height: 20px;
-        width: 180px;
-        opacity: 0.5;
-        background-color: transparent;
-        position: absolute;
-        left: 15%;
-    }
-    #login-container input.loginPage:hover {
-        opacity: 1;
-        background-color: whitesmoke;
-    }
-    #login-container label {
-        position: relative;
-        right: 10%;
-        color: black;
-    }
-    .welcome-container p {
-        color: #fad6a5;
-        font-family: 'Great Vibes', cursive;
-        font-size: 20px;
-        position: absolute;
-        top: 15%;
-        left: 30.2%;
-        padding-top: 20px;
-        ;
-        -webkit-touch-callout: none;
-        /* iOS Safari */
-        -webkit-user-select: none;
-        /* Safari */
-        -khtml-user-select: none;
-        /* Konqueror HTML */
-        -moz-user-select: none;
-        /* Old versions of Firefox */
-        -ms-user-select: none;
-        /* Internet Explorer/Edge */
-        user-select: none;
-        /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
-    }
-}
-
-/* Tablet Styles */
-
-@media only screen and (min-width: 401px) and (max-width: 960px) {
-    body {
-        background-image: url("../images/basket-beach-blue-coast-169196.jpg");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        background-attachment: fixed;
-        height: 80px;
-    }
-    #root {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .App {
-        width: 100%;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .background-image {
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        background-attachment: fixed;
-        height: 80px;
-    }
-}
-
-/* Desktop Styles 1*/
+/* Desktop Styles regular monitors*/
 
 @media only screen and (min-width: 961px) {
     body {
-        background-image: url("../images/basket-beach-blue-coast-169196.jpg");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
         background-attachment: fixed;
     }
     #root {
-        display: flex;
+        height: 100%;
+        overflow: hidden;
         flex-wrap: wrap;
-        width: 960px;
-        margin: 0 auto;
+        display: flex;
     }
     .App {
+        height: 140%;
         width: 100%;
-        height: 300px;
+        background-size: cover;
+        background-position: center;
+        transition: all 0.5s ease;
+        background-image: url('../images/paul-gilmore-hO0pA0TwTwE-unsplash.jpg');
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .background-image {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 80px;
+    .App:hover #nav-container {
+        display: block;
     }
     a {
         text-decoration: none;
-        color: whitesmoke
     }
-    a:hover {
-        display: inline;
-        vertical-align: middle;
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-transition-duration: 0.5s;
-        transition-duration: 0.5s;
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-        -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-        transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-        color: #c2b880;
-    }
-    ul {
-        list-style-type: none;
-    }
-    ::placeholder {
-        color: white;
-        position: fixed;
-        left: 11%;
-        font-size: 16px;
-    }
-    .button {
-        height: 35px;
-        width: 110px;
-        border-radius: 25px;
-        cursor: pointer;
-        background-color: transparent;
-        position: relative;
-        left: 30%;
-        top: 15%;
-        color: #c2b880;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 20px;
-    }
-    .button:hover {
-        border-color: #c2b880;
-        background-color: black;
-    }
+    /* Navigation menu */
     #header {
-        width: 1100px;
-        position: relative;
-        top: -35%;
+        width: 1000px;
+        height: 200px;
+        position: fixed;
+        top: 0px;
         margin: auto auto;
+        /* border-style: solid;
+        border-color: red; */
     }
-    #navigation ul {
-        font-family: 'Bebas Neue', cursive;
-        font-size: 40px;
-        text-align: right;
-    }
-    #navigation li {
-        display: inline;
-        margin-right: 5px;
-        float: right;
-        padding: 10px;
+    #navigation {
+        /* border-style: solid;
+        border-color: yellow; */
+        position: fixed;
+        width: 800px;
+        height: 150px;
+        top: 0px;
+        left: 2px;
     }
     #nav-container {
+        font-family: 'Sulphur Point', sans-serif;
+        font-size: 20px;
         position: fixed;
-        right: 0px;
         top: 0px;
+        right: 0px;
+        /* border-style: solid;
+        border-color: blue; */
+        height: 120px;
+        width: 1300px;
+        display: inline;
+        padding: 15px;
+        text-align: right;
+        display: none;
     }
     #greeting-message {
-        position: fixed;
-        left: 0px;
-        top: 0px;
         font-family: 'Great Vibes', cursive;
         font-size: 45px;
+        color: whitesmoke
     }
-    #login-container {
-        height: 150px;
-        width: 400px;
+    .admin-navigation .wrapper-inner-tab-background {
+        width: 25%;
+    }
+    .wrapper-inner-tab-backgrounds {
+        /* border: 1px solid green; */
+        display: inline;
+        padding: 10px;
         position: fixed;
-        left: 72%;
-        top: 15%;
-        background-color: transparent;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 25px;
-        color: #c2b880;
+        right: 0px;
+        top: -20px;
+        float: right;
+        width: 1000px;
+        font-family: 'Sulphur Point', sans-serif;
     }
-    #login-container div {
-        padding-bottom: 30px;
-        padding-top: 30px;
-    }
-    #login-container label {
+    .wrapper-inner-tab-background {
         position: relative;
-        right: 8%;
-    }
-    #login-container h1 {
-        position: relative;
-        left: 10%;
-    }
-    .login-input {
-        border-radius: 10px;
-        height: 30px;
-        width: 190px;
-        background-color: transparent;
-        position: relative;
-        text-align: center;
-        font-size: 19px;
-        color: #c2b880;
-    }
-    .login-input:hover {
-        background-color: black;
-    }
-    .welcome-container {
-        font-family: 'Great Vibes', cursive;
-        font-size: 45px;
-        width: 800px;
-        align-content: center;
-    }
-    .welcome-container p {
-        position: fixed;
-        top: 10px;
-        text-align: center;
-        background-color: #c2b880;
-        color: whitesmoke;
-        width: 400px;
-        border-radius: 100px 5px;
-        -webkit-touch-callout: none;
-        /* iOS Safari */
-        -webkit-user-select: none;
-        /* Safari */
-        -khtml-user-select: none;
-        /* Konqueror HTML */
-        -moz-user-select: none;
-        /* Old versions of Firefox */
-        -ms-user-select: none;
-        /* Internet Explorer/Edge */
-        user-select: none;
-        /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
-    }
-    .create-wedding-container {
-        height: 650px;
-        width: 400px;
-        position: fixed;
-        right: 7%;
-        top: 20%;
-        text-align: center;
-        background-color: transparent;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 25px;
-    }
-    .create-wedding-container h1 {
-        color: #c2b880;
-    }
-    .create-wedding {
-        height: 450px;
-        width: 400px;
-        ;
-        position: absolute;
-        top: 20%;
-        color: #c2b880;
-    }
-    .create-wedding-input {
-        position: absolute;
-        left: 45%;
-        background-color: black;
-        opacity: 0.7;
-        color: whitesmoke;
-        font-size: 16px;
-        border-radius: 25px;
-        height: 30px;
-        text-align: center;
-    }
-    .create-wedding label {
-        position: relative;
-        right: 35%;
-    }
-    .create-wedding-input:hover {
-        background-color: #c2b880;
-    }
-    #weddings-container {
-        height: 800px;
-        width: 800px;
-        position: fixed;
-        left: 20px;
-        top: 15%;
-    }
-    #weddings-container h2 {
-        font-family: 'Bebas Neue', cursive;
-        font-size: 50px;
-        position: fixed;
-        top: 100px;
-        left: 20px;
-        text-align: center;
-        background-color: #c2b880;
-        color: black;
-        width: 400px;
-        border-radius: 100px 5px;
-        border-color: white;
-        border-style: solid;
-        -webkit-touch-callout: none;
-        /* iOS Safari */
-        -webkit-user-select: none;
-        /* Safari */
-        -khtml-user-select: none;
-        /* Konqueror HTML */
-        -moz-user-select: none;
-        /* Old versions of Firefox */
-        -ms-user-select: none;
-        /* Internet Explorer/Edge */
-        user-select: none;
-        /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
-    }
-    .wedding {
-        border-style: solid;
-        border-color: white;
-        border-radius: 100px 5px;
+        display: inline-block;
+        left: 8%;
+        float: right;
         height: max-content;
-        width: max-content;
-        display: inline-grid;
-        margin-top: 10%;
-        margin-bottom: -100%;
-        margin-right: 7%;
-        background-color: #c2b880;
-        column-fill: auto;
+        width: 20%;
     }
-    .wedding li {
-        margin-right: 45px;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 25px;
-        word-wrap: break-word;
-        margin-top: 5%;
-    }
-    .wedding :hover {
-        border-radius: 100px 5px;
-        background-color: whitesmoke;
+    .sim-button {
+        line-height: 50px;
+        height: 50px;
+        text-align: center;
+        margin-top: 25px;
+        width: 60%;
         cursor: pointer;
     }
-    .wedding h5 {
+    .button11 {
+        color: rgba(255, 255, 255, 1);
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
         position: relative;
-        right: 0px;
-        color: black;
+        perspective: 2000px;
     }
-    .wedding-details img {
-        position: relative;
-        height: 50%;
+    .button11 a {
+        color: whitesmoke;
+        text-decoration: none;
+        display: block;
+    }
+    .button11 span {
+        z-index: 2;
+        display: block;
+        position: absolute;
         width: 100%;
-        background-position: center;
-        align: middle;
+        height: 100%;
     }
-    .wedding-details {
-        
-        margin: auto auto;
-        width: 700px;
+    .button11::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+    .button11::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+    .button11:hover::before {
+        -webkit-transform: rotateX(60deg) translate(0px, 40px);
+        transform: rotateX(60deg) translate(0px, 40px);
+    }
+    .button11:hover::after {
+        -webkit-transform: rotateX(-60deg) translate(0px, -40px);
+        transform: rotateX(-60deg) translate(0px, -40px);
+    }
+    /* Login page */
+    #login-container {
+        height: 550px;
+        width: 510px;
+        color: whitesmoke;
         position: fixed;
-        left: 30%;
-        top: 20%;
-        float: left;
+        top: 15%;
+        left: 32%;
+        border-radius: 20px;
+        -webkit-animation-name: animation-container;
+        /* Safari 4.0 - 8.0 */
+        -webkit-animation: animation-container 8s;
+        -webkit-animation-fill-mode: forwards;
+        /* Safari 4.0 - 8.0 */
+        animation-name: animation-container 8s;
+        -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes animation-container {
+        from {
+            background-color: transparent;
+        }
+        to {
+            background-color: rgba(0, 0, 0, .8);
+        }
+    }
+    @keyframes animation-text-container {
+        from {
+            background-color: transparent;
+        }
+        to {
+            background-color: rgba(0, 0, 0, .8);
+        }
+    }
+    .login-text {
+        position: relative;
+        top: 50px;
+        left: 7%;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        height: 350px;
+    }
+    .login-text h1 {
+        position: relative;
+        left: -8%;
+        font-size: 40px;
+    }
+    .login-input, .login-input-btn {
+        position: relative;
+        top: 65px;
+        right: 15%;
+        margin: 20px;
+    }
+    .login-text label {
+        font-size: 30px;
+    }
+    .login-input-btn {
+        position: relative;
+        left: 15%;
+        top: 120px;
+        width: 24%;
+        height: 34px;
+        border-radius: 20px;
+        border-style: thin;
+        background-color: transparent;
+        color: whitesmoke;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .login-input-btn:hover {
+        background-color: whitesmoke;
         color: black;
+    }
+    #username-input, #password-input {
+        border-radius: 25px;
+        height: 40px;
+        background-color: transparent;
+        text-align: center;
+        color: whitesmoke;
+        font-size: 15px;
+        outline: none;
+    }
+    #username-input:hover, #password-input:hover {
+        background-color: whitesmoke;
+        color: black;
+    }
+    /* Home Page User */
+    .homepage-container {
+        /* border-style: solid;
+        border-color: white; */
+        width: 95%;
+        height: 90%;
+        position: fixed;
+        left: 2%;
+        top: 10%;
+        display: inline-grid;
         text-align: center;
     }
-    .wedding-details h1 {
-        position: absolute;
-        top: 10%;
-        left: 20%;
-        font-size: 50px;
+    .user-page-container {
+        position: relative;
+        border-style: solid;
+        border-radius: 20px;
         color: whitesmoke;
-        font-family: 'Great Vibes', cursive;
+        overflow: scroll;
+        overflow-x: hidden;
+        -webkit-animation-name: animation-container;
+        /* Safari 4.0 - 8.0 */
+        -webkit-animation: animation-container 5s;
+        -webkit-animation-fill-mode: forwards;
+        /* Safari 4.0 - 8.0 */
+        animation-name: animation-container 5s;
+        -webkit-animation-fill-mode: forwards;
     }
-    .wedding-details h5 {
-        position: absolute;
-        color: whitesmoke;
-        font-family: 'Great Vibes', cursive;
+    .user-page-container::-webkit-scrollbar {
+        width: 12px;
+    }
+    .user-page-container::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        -webkit-border-radius: 15px;
+        border-radius: 15px;
+    }
+    /* Handle */
+    .user-page-container::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: whitesmoke;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+    .user-page-container h1, h2, h3 {
+        font-family: 'Tangerine', cursive;
+    }
+    .user-page-container h1 {
+        font-size: 85px;
+    }
+    .couple {
+        height: 30%;
+        position: relative;
+        top: 10%;
+    }
+    .couple h2 {
+        font-size: 45px;
+    }
+    .wedding-date {
+        position: relative;
+        top: 15%;
+        height: 400px;
+    }
+    .wedding-date h2 {
+        font-size: 75px;
+    }
+    .wedding-date h3 {
+        font-size: 55px;
+    }
+    .wedding-date p {
         font-size: 35px;
     }
-    #wedding-date {
-        top: 75%;
-        left: 15%;
+    .couple-intro {
+        position: relative;
+        top: 110px;
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        align-content: center;
+        margin: 30px;
     }
-    #groom-name {
+    .intro {
+        display: inline-block;
+        width: 450px;
+        float: right;
+        text-align: center;
+        align-content: center;
+    }
+    .temp {
+        position: relative;
+        top: 15%;
+    }
+    .intro h3 {
+        font-size: 65px;
+    }
+    .intro p {
+        font-size: 25px;
+    }
+    .wedding-events-container {
+        position: relative;
+        top: 110px;
+        display: inline-block;
+        width: 80%;
+        text-align: center;
+        align-content: center;
+        margin: 30px;
+    }
+    .wedding-events-container h2 {
+        font-size: 65px;
+        padding: 50px;
+    }
+    .event {
+        display: inline;
+        width: 550px;
+        float: right;
+        text-align: center;
+        align-content: center;
+    }
+    .event h3 {
+        font-size: 55px;
+        padding-bottom: 25px;
+    }
+    .event span {
+        font-size: 30px;
+        padding-top: 25px;
+        padding: 10px;
+    }
+    .event p {
+        padding-top: 20px;
+        font-size: 20px;
+    }
+    #main-ceremony {
+        position: relative;
+        right: 62%;
+    }
+    #main-ceremony h3, #wedding-party h3 {
+        border-bottom: 1px solid whitesmoke;
+    }
+    #wedding-party {
+        position: relative;
+        right: 10%;
+        top: 9%;
+    }
+    /* Create Guest List */
+    .create-guest-container {
+        /* border: 1px solid yellow; */
+        height: 550px;
+        width: 510px;
+        color: whitesmoke;
+        position: fixed;
+        top: 15%;
+        font-family: 'Great Vibes', cursive;
+        font-size: 20px;
+        left: 32%;
+        border-radius: 20px;
+        align-items: center;
+        align-content: center;
+        -webkit-animation-name: animation-container;
+        /* Safari 4.0 - 8.0 */
+        -webkit-animation: animation-container 3s;
+        -webkit-animation-fill-mode: forwards;
+        /* Safari 4.0 - 8.0 */
+        animation-name: animation-container 3s;
+        -webkit-animation-fill-mode: forwards;
+    }
+    .create-guest {
+        /* border: 1px solid white; */
+        position: relative;
+        height: 65%;
+        top: 10%;
+        left: 0%;
+        margin: 10px;
+        font-size: 35px;
+        color: whitesmoke;
+    }
+    .create-guest form {
+        /* border:1px solid yellow; */
+        height: 65%;
+    }
+    .guest-names {
+        position: relative;
+        border-radius: 25px;
+        height: 40px;
+        width: 50%;
+        background-color: transparent;
+        color: whitesmoke;
+        margin: 15px;
+        font-size: 15px;
+        text-align: center;
+        outline: none;
+    }
+    .guest-names:hover, .create-guest-button:hover {
+        color: black;
+        background-color: whitesmoke;
+    }
+    .create-guest-button {
+        position: relative;
         top: 55%;
-        left: 15%;
+        right: 40%;
+        cursor: pointer;
+        background-color: transparent;
+        color: whitesmoke;
+        border-radius: 25px;
+        height: 20%;
+        width: 25%;
+        font-size: 20px;
+        outline: none;
     }
-    #bride-name {
-        top: 35%;
-        left: 15%;
+    .success-message {
+        width: 500px;
+        font-size: 25px;
+        position: absolute;
+        left: 110%;
+        top: 4%;
+        background-color: rgba(0, 0, 0, .8);
+        border-radius: 25px;
+        text-align: center;
+        font-family: 'Sulphur Point', sans-serif;
     }
-    @keyframes myAnimation{
-        0%{
-          opacity: 1;
-          transform: rotateX(90deg);
-        }
-        50%{
-          opacity: 0.5;
-          transform: rotateX(0deg);
-        }
-        100%{
-          display: none;
-          opacity: 0;
-          transform: rotateX(90deg);
-        }
-      }
-      .success-message{
-        animation-name: myAnimation;
-        animation-duration: 2000ms;
-        animation-fill-mode: forwards;
+    /* Display Guest List */
+    .guest-container, #weddings-container, .wedding-details-container,#no-guests-message {
+        border-style: solid;
+        border-color: white;
+        border-radius: 25px;
+        width: 95%;
+        height: 90%;
+        display: inline-grid;
+        position: fixed;
+        left: 2%;
+        top: 10%;
+        background-color: rgba(0, 0, 0, 8);
+        opacity: 0.8;
     }
-    .guest-container {
-        border-style:solid,
-        
+    .guests {
+        display: inline-block;
+        margin-right: 10px;
+        font-family: "Georgia", cursive;
+        font-size: 20px;
+        color: whitesmoke;
+        background-attachment: fixed;
+        overflow: scroll;
+        overflow-x: hidden;
+        scrollbar-face-color: #367CD2;
+        scrollbar-shadow-color: #FFFFFF;
+        scrollbar-highlight-color: #FFFFFF;
+        scrollbar-3dlight-color: #FFFFFF;
+        scrollbar-darkshadow-color: #FFFFFF;
+        scrollbar-track-color: #FFFFFF;
+        scrollbar-arrow-color: #FFFFFF;
     }
+    .guests::-webkit-scrollbar {
+        width: 12px;
+    }
+    .guests::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    /* Handle */
+    .guests::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: whitesmoke;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+    .guests form {
+        position: relative;
+        top: 55px;
+        left: 30%;
+        padding-bottom: 10px;
+    }
+    .guests .button {
+        position: relative;
+        left: 35%;
+        bottom: 50px;
+    }
+    .guests #status {
+        position: relative;
+        left: 7%;
+        top: 15px;
+    }
+    .guests h3 {
+        position: relative;
+        left: 45%;
+        font-size: 85px;
+    }
+    .guests h5 {
+        position: relative;
+        right: 15%;
+    }
+    #guest-on-line {
+        border-bottom: 1px solid whitesmoke;
+    }
+    #status-question-container {
+        position: relative;
+        top: 5%;
+        right: 13%;
+        align-items: center;
+        text-align: center;
+        font-family: "Georgia", cursive;
+        font-size: 17px;
+    }
+    #check-attendence {
+        position: relative;
+        left: 8%;
+    }
+    #total-guests {
+        position: relative;
+        bottom: -2%;
+        left: 2%;
+    }
+    .select-box {
+        cursor: pointer;
+        position: relative;
+        left: 20%;
+        bottom: 25px;
+        color: whitesmoke;
+        background-color: black;
+        display: block;
+        font: 400 17px/2em 'Source Sans Pro', sans-serif;
+        background: transparent;
+    }
+    .select-box:hover {
+        background: whitesmoke;
+        cursor: pointer;
+        color: rgba(0, 0, 0, 8);
+    }
+    .guest-button input {
+        cursor: pointer;
+        margin: 5px;
+        height: 25px;
+        width: 7%;
+        background-color: transparent;
+        color: white;
+    }
+    #confirm-status {
+        position: relative;
+        left: 25%;
+    }
+    #confirm-status:hover {
+        background-color: greenyellow;
+        color: black;
+    }
+    #delete-guest:hover {
+        background-color: red;
+    }
+    /* Display all weddings-admin */
+    #weddings-container {
+        color: whitesmoke;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+    #weddings-container h2 {
+        height: 16%;
+        width: 20%;
+        font-size: 75px;
+        position: relative;
+        left: 43%;
+    }
+    .wedding {
+        position: relative;
+        bottom: 60%;
+        left: 5%;
+        display: inline-grid;
+        float: left;
+        margin: 15px;
+        width: 10%;
+        text-align: center;
+        column-fill: auto;
+        background-color: whitesmoke;
+        border-radius: 100px 5px;
+        font-size: 35px;
+    }
+    .wedding:hover {
+        background-color: transparent;
+    }
+    .wedding h5:hover {
+        color: whitesmoke;
+    }
+    .wedding h5 {
+        color: black;
+    }
+    /* Display Wedding-details-admin */
+    .wedding-details-container {
+        color: whitesmoke;
+        text-align: center;
+    }
+    .wedding-details {
+        font-family: 'Sulphur Point', sans-serif;
+        position: relative;
+        top: 15%;
+        font-size: 45px;
+    }
+    #no-guests-message{
+        color:whitesmoke;
+        text-align:center;
+    }
+    #no-guests-message h1{
+    border:1px white solid;
+        position: relative;
+        top:35%;
+        font-size:65px;
+    }
+    #no-guests-message h5{
+        font-size:25px;
+        color:whitesmoke
+    }
+    #no-guests-message h5:hover{
+        color:greenyellow;
+    }
+   
 }
 
 /* Desktop Styles Ultra Wide Monitors*/
+
+@media only screen and (min-width: 1920px) {
+    #root {
+        height: 100vh;
+        overflow: hidden;
+        flex-wrap: wrap;
+    }
+}

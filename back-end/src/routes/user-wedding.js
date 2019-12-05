@@ -4,11 +4,11 @@ const weddings = require('../models/user');
 
 const router = new express.Router();
 
-router.get('/all', (req, res) => {
-    weddings.find()
-    .then(users =>{
-        res.status(200).json(users)
-    })
-})
+router.get('/wedding-homepage', authCheck, (req, res) => {
+    weddings.find(req.user._id)
+        .then(wedding => {
 
+            res.status(200).json(wedding)
+        })
+})
 module.exports = router;
