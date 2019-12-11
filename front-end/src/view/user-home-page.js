@@ -16,7 +16,7 @@ class UserHomePage extends React.Component {
     render() {
 
         const wedding = this.state;
-        console.log(wedding.wedding._id);
+        
         if (wedding === undefined) {
             return (
                 <div>
