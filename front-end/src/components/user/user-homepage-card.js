@@ -13,7 +13,6 @@ class UserHomePageCard extends React.Component {
         
         try {
             const weddingDateToArray = weddingInfo.weddingDate.split('/');
-
             var day = weddingDateToArray[0].toString();
             var month = weddingDateToArray[1].toString();
             var year = weddingDateToArray[2].toString();
@@ -30,6 +29,7 @@ class UserHomePageCard extends React.Component {
                     dayToString = daysOfWeek[n];
                 }
             }
+
             for (let k = 0; k < monthsOfYear.length; k++) {
                 if (k === getMonth) {
 
@@ -84,28 +84,25 @@ class UserHomePageCard extends React.Component {
             )
 
         } catch (error) {
-            console.log(error)
+            return (
+                <div className="user-page-container" >
+    
+                    <div className="couple">
+                        <Fade left delay={2000} >
+                            <h1>{weddingInfo.bride} &amp; {weddingInfo.groom}</h1>
+                        </Fade>
+                        <Fade left delay={3000}>
+                            <h2>We Are Getting Married!</h2>
+                        </Fade>
+                    </div>
+                    <div className="wedding-date"><br />
+                        <Fade left delay={4000}><h2>Dear family and friends,</h2></Fade>
+                        <Fade left delay={5000}><p>We invite you to celebrate with us our wedding!</p></Fade>
+                    </div>
+                </div>
+            )
         }
-
-
-        return (
-            <div className="user-page-container" >
-
-                <div className="couple">
-                    <Fade left delay={2000} >
-                        <h1>{weddingInfo.bride} &amp; {weddingInfo.groom}</h1>
-                    </Fade>
-                    <Fade left delay={3000}>
-                        <h2>We Are Getting Married!</h2>
-                    </Fade>
-                </div>
-                <div className="wedding-date"><br />
-                    <Fade left delay={4000}><h2>Dear family and friends,</h2></Fade>
-                    <Fade left delay={5000}><h3>on {weddingInfo.weddingDate}</h3></Fade>
-                    <Fade left delay={5000}><p>We invite you to celebrate with us our wedding!</p></Fade>
-                </div>
-            </div>
-        )
+     
     }
 
 }

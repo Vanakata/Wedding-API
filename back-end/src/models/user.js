@@ -18,15 +18,38 @@ let userSchema = new mongoose.Schema({
     },
     weddingDate: {
         type: mongoose.SchemaTypes.String,
-        
+
     },
     groom: {
         type: mongoose.SchemaTypes.String,
-        
+
     },
     bride: {
         type: mongoose.SchemaTypes.String,
-        
+
+    },
+    bestMan: {
+        type: mongoose.SchemaTypes.String,
+    },
+    godmother: {
+        type: mongoose.SchemaTypes.String,
+    },
+    ceremonyPlace: {
+        type: mongoose.SchemaTypes.String,
+    },
+    ceremonyStart:{
+        type:mongoose.SchemaTypes.String
+    },
+    ceremonyEnd:{
+        type:mongoose.SchemaTypes.String
+    },
+    partyPlace: {
+        type: mongoose.SchemaTypes.String,
+    },
+    partyStart:{
+        type:mongoose.SchemaTypes.String,
+    },partyEnd:{
+        type:mongoose.SchemaTypes.String,
     },
     roles: [{
         type: mongoose.SchemaTypes.String
@@ -53,7 +76,7 @@ module.exports.seedAdminUser = () => {
                 return;
             } else {
                 let salt = encryption.generateSalt();
-                let password = encryption.hashedPassword(salt,"wedding123");
+                let password = encryption.hashedPassword(salt, "wedding123");
                 User.create({
 
                     email: "admin@abv.bg",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { UserConsumer } from '../User-Context/User-Context';
+import { UserConsumer } from '../user-context/User-Context';
 
 
 const AdminRoute = ({ isLoggedIn, roles, ...otherProps }) => {

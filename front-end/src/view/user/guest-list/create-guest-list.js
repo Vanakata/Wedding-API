@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { UserConsumer } from '../../components/User-Context/User-Context';
-import GuestListService from '../../components/services/guest-list-service';
+import { UserConsumer } from '../../../components/user-context/User-Context';
+import GuestListService from '../../../components/services/guest-list-service';
 import Fade from 'react-reveal';
+
 class CreateGuestList extends Component {
     constructor(props) {
         super(props);

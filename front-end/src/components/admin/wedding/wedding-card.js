@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { UserConsumer } from '../../User-Context/User-Context';
+import { UserConsumer } from '../../user-context/User-Context';
 import { Link } from 'react-router-dom';
 
 class WeddingCard extends Component {

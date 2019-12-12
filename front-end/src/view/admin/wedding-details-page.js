@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import WeddingService from '../components/services/wedding-service';
-import { UserConsumer } from '../components/User-Context/User-Context';
+import WeddingService from '../../components/services/wedding-service';
+import { UserConsumer } from '../../components/user-context/User-Context';
 import Bounce from 'react-reveal/Bounce';
 // import UploadImage from '../components/upload-data/upload-data-filepond';
 import axios from 'axios';

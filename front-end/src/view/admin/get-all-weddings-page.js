@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import WeddingService from '../components/services/wedding-service';
-import WeddingCard from '../components/home/admin/wedding-card';
+import WeddingService from '../../components/services/wedding-service';
+import WeddingCard from '../../components/admin/wedding/wedding-card';
 import RubberBand from 'react-reveal/RubberBand';
 
 class AllWeddings extends Component {

@@ -1,17 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { defaultUserState, UserProvider } from "../components/User-Context/User-Context";
+import { defaultUserState, UserProvider } from "../components/user-context/User-Context";
 import NavBar from "../components/Nav-Bar/NavBar";
 import Login from '../view/login-page';
-import AuthorizeRoute from '../components/User-Context/Authorized-Route';
-import UserHomePage from '../view/user-home-page';
-import CreateWedding from '../view/create-wedding-page';
-import AllWeddings from '../view/get-all-weddings';
-import WeddingDetails from '../view/wedding-details-page';
-import GuestList from '../view/guest-list/guest-list-page';
-import CreateGuestList from '../view/guest-list/create-guest-list';
-
-import AdminRoute from '../../src/components/User-Context/Admin-Route';
+import AuthorizeRoute from '../components/routes/Authorized-Route';
+import UserHomePage from '../view/user/user-home-page';
+import CreateWedding from '../view/admin/create-wedding-page';
+import AllWeddings from '../view/admin/get-all-weddings-page';
+import WeddingDetails from '../view/admin/wedding-details-page';
+import GuestList from '../view/user/guest-list/guest-list-page';
+import CreateGuestList from '../view/user/guest-list/create-guest-list';
+import AdminRoute from '../components/routes/Admin-Route';
 import 'filepond/dist/filepond.min.css';
 import "../css/style.css";
 

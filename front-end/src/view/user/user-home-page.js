@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import { UserConsumer } from '../components/User-Context/User-Context';
-import UserService from '../components/services/user-service';
-import UserHomePageCard from '../components/home/user/user-homepage-card';
+import { UserConsumer } from '../../components/user-context/User-Context';
+import UserService from '../../components/services/user-service';
+import UserHomePageCard from '../../components/user/user-homepage-card';
 
 
 class UserHomePage extends React.Component {

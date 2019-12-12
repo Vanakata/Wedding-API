@@ -15,6 +15,15 @@ module.exports = new PassportLocalStrategy({
         weddingDate:req.body.weddingDate.trim(),
         groom:req.body.groom.trim().toLowerCase(),
         bride:req.body.bride.trim().toLowerCase(),
+        bestMan:req.body.bestMan.trim().toLowerCase(),
+        godmother:req.body.godmother.trim().toLowerCase(),
+        ceremonyPlace:req.body.ceremonyPlace.trim(),
+        ceremonyStart:req.body.ceremonyStart.trim().toLowerCase(),
+        ceremonyEnd:req.body.ceremonyEnd.trim().toLowerCase(),
+        partyPlace:req.body.partyPlace.trim(),
+        partyStart:req.body.partyStart.trim().toLowerCase(),
+        partyEnd:req.body.partyEnd.trim().toLowerCase(),
+
     };
     User.find({ email: email })
         .then(users => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GuestService from '../../services/guest-list-service';
+import GuestService from '../services/guest-list-service';
 
 class GuestCard extends Component {
     constructor(props) {

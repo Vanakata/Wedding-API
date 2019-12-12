@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { UserConsumer } from "../User-Context/User-Context";
+import { UserConsumer } from "../user-context/User-Context";
 import { NavLink } from "react-router-dom";
 import { Fade } from 'react-reveal';
-import AdminRoute from '../User-Context/Admin-Route';
+
 
 const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
     return (

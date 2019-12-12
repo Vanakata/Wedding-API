@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import AuthenticationService from '../components/services/authentication-service';
-import { UserConsumer } from '../components/User-Context/User-Context';
+import AuthenticationService from '../../components/services/authentication-service';
+import { UserConsumer } from '../../components/user-context/User-Context';
 
 class CreateWedding extends React.Component {
     constructor(props) {
@@ -14,6 +14,14 @@ class CreateWedding extends React.Component {
             weddingDate: "",
             groom: "",
             bride: "",
+            bestMan: "",
+            godmother: "",
+            ceremonyPlace: "",
+            ceremonyStart: "",
+            ceremonyEnd: "",
+            partyPlace: "",
+            partyStart: "",
+            partyEnd: "",
             error: "",
             isRegister: false
         }
@@ -28,7 +36,7 @@ class CreateWedding extends React.Component {
     handleSubmit = (event) => {
 
         event.preventDefault();
-        const { email, username, password, confirmPassword, weddingDate, groom, bride } = this.state;
+        const { email, username, password, confirmPassword, weddingDate, groom, bride, bestMan, godmother, ceremonyPlace, ceremonyStart, ceremonyEnd, partyPlace, partyStart, partyEnd, } = this.state;
 
         const credentials = {
             email,
@@ -37,8 +45,17 @@ class CreateWedding extends React.Component {
             confirmPassword,
             weddingDate,
             groom,
-            bride
+            bride,
+            bestMan,
+            godmother,
+            ceremonyPlace,
+            ceremonyStart,
+            ceremonyEnd,
+            partyPlace,
+            partyStart,
+            partyEnd,
         }
+        
         this.setState({
             error: ''
         }, async () => {
@@ -62,7 +79,8 @@ class CreateWedding extends React.Component {
         })
     }
     render() {
-        const { email, username, password, confirmPassword, weddingDate, error, isRegister, groom, bride } = this.state;
+        const { email, username, password, confirmPassword, weddingDate, error, isRegister, bestMan, godmother, ceremonyPlace, ceremonyStart, ceremonyEnd, partyPlace, partyStart, partyEnd, groom, bride } = this.state;
+
         const { isLoggedIn } = this.props;
 
 
@@ -125,10 +143,9 @@ class CreateWedding extends React.Component {
 
                         <label>Wedding Date:</label>
                         <input
-                            type='text'
+                            type='date'
                             name='weddingDate'
                             id='weddingDate'
-                            placeholder='dd/mm/yyyy'
                             value={weddingDate}
                             onChange={this.handleChange}
                             className="create-wedding-input"
@@ -153,13 +170,93 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
+                        <label>Best man:</label>
+                        <input
+                            type='text'
+                            name='bestMan'
+                            id='best-man'
+                            placeholder='Enter best man`s name'
+                            value={bestMan}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        /><br />
+                        <label>Godmother:</label>
+                        <input
+                            type='text'
+                            name='godmother'
+                            id='godmother'
+                            placeholder='Enter godmother`s name'
+                            value={godmother}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        /><br />
+                        <label>Ceremony will be:</label>
+                        <input
+                            type='text'
+                            name='ceremonyPlace'
+                            id='ceremony-place'
+                            placeholder='Where will be the ceremony'
+                            value={ceremonyPlace}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        /><br />
+                        <label>From:</label>
+                        <input
+                            type='time'
+                            name='ceremonyStart'
+                            id='ceremony-start'
+                            placeholder='Beginng for ceremony'
+                            value={ceremonyStart}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        />
+                        <label>To:</label>
+                        <input
+                            type='time'
+                            name='ceremonyEnd'
+                            id='ceremony-end'
+                            placeholder='End of ceremony'
+                            value={ceremonyEnd}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        /><br />
+                        <label>Wedding party will be:</label>
+                        <input
+                            type='text'
+                            name='partyPlace'
+                            id='party-place'
+                            placeholder='Where will be the wedding party'
+                            value={partyPlace}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        /><br />
+                         <label>From:</label>
+                        <input
+                            type='time'
+                            name='partyStart'
+                            id='party-start'
+                            placeholder='Beginng for party'
+                            value={partyStart}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        />
+                        <label>To:</label>
+                        <input
+                            type='time'
+                            name='partyEnd'
+                            id='party-end'
+                            placeholder='End of party'
+                            value={partyEnd}
+                            onChange={this.handleChange}
+                            className="create-wedding-input"
+                        /><br />
                         <input
                             type="submit"
                             value="Create"
                             className="button" />
                     </div>
                 </form>
-            </div>
+            </div >
         )
     }
 }

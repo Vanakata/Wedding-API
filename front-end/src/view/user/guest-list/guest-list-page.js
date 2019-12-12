@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import GuestCard from '../../components/home/user/guest-card'
-import GuestService from '../../components/services/guest-list-service'
+import GuestCard from '../../../components/user/guest-card'
+import GuestService from '../../../components/services/guest-list-service'
 import RubberBand from 'react-reveal/RubberBand';
 
 class GuestList extends Component {
