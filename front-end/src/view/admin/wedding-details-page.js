@@ -57,6 +57,12 @@ class WeddingDetails extends Component {
                             <h5>Date of wedding: {wedding.weddingDate}</h5>
                             <h5>Happy groom: {wedding.groom}</h5>
                             <h5>Adorable bride: {wedding.bride}</h5>
+                            <h5>Best man: {wedding.bestMan}</h5>
+                            <h5>Godmother: {wedding.godmother}</h5>
+                            <h5>Ceremony at: {wedding.ceremonyPlace}</h5>
+                            <h5>Ceremony starts: {wedding.ceremonyStart}</h5>
+                            <h5>Wedding party at: {wedding.partyPlace}</h5>
+                            <h5>Wedding party starts: {wedding.partyStart}</h5>
                         </div>
                     </Bounce>
 

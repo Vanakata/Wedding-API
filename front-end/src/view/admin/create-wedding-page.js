@@ -55,7 +55,7 @@ class CreateWedding extends React.Component {
             partyStart,
             partyEnd,
         }
-        
+
         this.setState({
             error: ''
         }, async () => {
@@ -99,18 +99,19 @@ class CreateWedding extends React.Component {
                 }
                 <h1>Create new Wedding</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="create-wedding">
-                        <label>E-mail:</label>
+                    <div id="create-email" className="create-wedding">
+                        <label className="create-wedding-label">E-mail:</label>
                         <input
                             type='text'
                             name='email'
                             id='email'
-                            placeholder='Enter users e-mail'
+                            placeholder='Enter user e-mail'
                             value={email}
                             onChange={this.handleChange}
-                            className="create-wedding-input"
-                        /><br />
-                        <label>Username:</label>
+                            className="create-wedding-input" /><br />
+                    </div>
+                    <div id="create-username" className="create-wedding">
+                        <label className="create-wedding-label">Username:</label>
                         <input
                             type='text'
                             name='username'
@@ -120,7 +121,9 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>Password:</label>
+                    </div>
+                    <div id="create-password" className="create-wedding">
+                        <label className="create-wedding-label">Password:</label>
                         <input
                             type='password'
                             name='password'
@@ -130,7 +133,9 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>Confirm-Password:</label>
+                    </div>
+                    <div id="create-confirm-passord" className="create-wedding">
+                        <label className="create-wedding-label">Confirm-Password:</label>
                         <input
                             type='password'
                             name='confirmPassword'
@@ -140,8 +145,9 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-
-                        <label>Wedding Date:</label>
+                    </div>
+                    <div id="create-wedding-date" className="create-wedding">
+                        <label className="create-wedding-label">Wedding Date:</label>
                         <input
                             type='date'
                             name='weddingDate'
@@ -150,7 +156,9 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>Groom:</label>
+                    </div>
+                    <div id="create-groom" className="create-wedding">
+                        <label className="create-wedding-label">Groom:</label>
                         <input
                             type='text'
                             name='groom'
@@ -160,7 +168,9 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>Bride:</label>
+                    </div>
+                    <div id="create-bride" className="create-wedding">
+                        <label className="create-wedding-label">Bride:</label>
                         <input
                             type='text'
                             name='bride'
@@ -170,7 +180,10 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>Best man:</label>
+
+                    </div>
+                    <div id="create-best-man" className="create-wedding">
+                        <label className="create-wedding-label">Best man<small>(optional)</small>:</label>
                         <input
                             type='text'
                             name='bestMan'
@@ -180,7 +193,9 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>Godmother:</label>
+                    </div>
+                    <div id="create-godmother" className="create-wedding">
+                        <label className="create-wedding-label">Godmother<small>(optional)</small>:</label>
                         <input
                             type='text'
                             name='godmother'
@@ -190,7 +205,9 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>Ceremony will be:</label>
+                    </div>
+                    <div id="create-ceremony-place" className="create-wedding">
+                        <label className="create-wedding-label">Wedding Ceremony<small>(optional)</small>:</label>
                         <input
                             type='text'
                             name='ceremonyPlace'
@@ -200,27 +217,22 @@ class CreateWedding extends React.Component {
                             onChange={this.handleChange}
                             className="create-wedding-input"
                         /><br />
-                        <label>From:</label>
+                    </div>
+                    <div id="create-ceremony-duration" className="create-wedding">
+
+                        <label className="create-wedding-label">from:</label>
                         <input
                             type='time'
                             name='ceremonyStart'
-                            id='ceremony-start'
                             placeholder='Beginng for ceremony'
                             value={ceremonyStart}
                             onChange={this.handleChange}
                             className="create-wedding-input"
-                        />
-                        <label>To:</label>
-                        <input
-                            type='time'
-                            name='ceremonyEnd'
-                            id='ceremony-end'
-                            placeholder='End of ceremony'
-                            value={ceremonyEnd}
-                            onChange={this.handleChange}
-                            className="create-wedding-input"
                         /><br />
-                        <label>Wedding party will be:</label>
+
+                    </div>
+                    <div id="create-party-place" className="create-wedding">
+                        <label className="create-wedding-label">Wedding party will be:</label>
                         <input
                             type='text'
                             name='partyPlace'
@@ -229,8 +241,10 @@ class CreateWedding extends React.Component {
                             value={partyPlace}
                             onChange={this.handleChange}
                             className="create-wedding-input"
-                        /><br />
-                         <label>From:</label>
+                        />
+                    </div>
+                    <div id="create-party-duration" className="create-wedding">
+                        <label className="create-wedding-label">from:</label>
                         <input
                             type='time'
                             name='partyStart'
@@ -239,22 +253,13 @@ class CreateWedding extends React.Component {
                             value={partyStart}
                             onChange={this.handleChange}
                             className="create-wedding-input"
-                        />
-                        <label>To:</label>
-                        <input
-                            type='time'
-                            name='partyEnd'
-                            id='party-end'
-                            placeholder='End of party'
-                            value={partyEnd}
-                            onChange={this.handleChange}
-                            className="create-wedding-input"
                         /><br />
-                        <input
-                            type="submit"
-                            value="Create"
-                            className="button" />
                     </div>
+                    <input
+                        type="submit"
+                        value="Create"
+                        id="create-wedding-button"
+                    />
                 </form>
             </div >
         )

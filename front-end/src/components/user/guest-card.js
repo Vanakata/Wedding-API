@@ -81,9 +81,9 @@ class GuestCard extends Component {
                             {
                                 this.state.isUpdate === true
                                     ?
-                                    <h6 id="status">{this.state.value}</h6>
+                                    <h6 className="status">{this.state.value}</h6>
                                     :
-                                    <h6 id="status">{guest.isComing}</h6>
+                                    <h6 className="status">{guest.isComing}</h6>
                             }
                             <h5>{guest.firstName} {guest.lastName}</h5>
                             <div>

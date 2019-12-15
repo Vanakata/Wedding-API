@@ -49,7 +49,7 @@ class CreateGuestList extends Component {
                 }, 3000);
 
             } catch (error) {
-                console.log(error);
+               alert("Something went wrong.Please check your input.");
             }
         })
     }
