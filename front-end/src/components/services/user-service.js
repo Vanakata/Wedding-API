@@ -1,4 +1,4 @@
-import { get, post, remove } from '../../data/crud';
+import { get } from '../../data/crud';
 
 class UserService {
     constructor() {

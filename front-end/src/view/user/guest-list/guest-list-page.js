@@ -56,6 +56,7 @@ class GuestList extends Component {
                         <h3>Guest List:</h3>
                         <div id="status-question-container">
                             <span id="status-question">Please confirm your attendance:</span>
+                           
                             <span id="check-attendence">Check here</span>
                         </div>
 

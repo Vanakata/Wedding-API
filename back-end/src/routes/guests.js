@@ -73,7 +73,7 @@ router.get('/all', authCheck, (req, res) => {
 
 router.delete('/all/delete/:id', authCheck, (req, res) => {
     const id = req.params.id;
-console.log(id);
+
     guestList.findById(id)
         .then((guest) => {
             guest.remove()

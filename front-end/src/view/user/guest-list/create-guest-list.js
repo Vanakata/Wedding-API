@@ -55,7 +55,7 @@ class CreateGuestList extends Component {
     }
 
     render() {
-        let { firstName, lastName, error } = this.state;
+        let { firstName, lastName } = this.state;
 
 
         return (

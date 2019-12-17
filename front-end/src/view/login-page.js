@@ -60,16 +60,18 @@ class Login extends Component {
     };
     render() {
         const { username, password } = this.state;
-        const { isLoggedIn,isAdmin } = this.props;
+        const { isLoggedIn, isAdmin } = this.props;
 
         if (isLoggedIn) {
-            
-            if(isAdmin){
-                return (<Redirect to='/admin/all'/>)
+
+            if (isAdmin) {
+                return (<Redirect to='/admin/all' />)
+            } else {
+
+                return (
+                    <Redirect to='/user/wedding-homepage' />
+                )
             }
-                    return (
-                        <Redirect to='/user/wedding-homepage' />
-                    )
         } else {
             return (
                 <Fade left cascade>
@@ -120,7 +122,7 @@ const LoginWithContext = (props) => {
     return (
         <UserConsumer>
             {
-                ({ isLoggedIn, updateUser,isAdmin }) => (
+                ({ isLoggedIn, updateUser, isAdmin }) => (
                     <Login
                         {...props}
                         isLoggedIn={isLoggedIn}

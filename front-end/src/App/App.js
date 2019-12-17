@@ -13,6 +13,11 @@ import CreateGuestList from '../view/user/guest-list/create-guest-list';
 import AdminRoute from '../components/routes/Admin-Route';
 import 'filepond/dist/filepond.min.css';
 import "../css/style.css";
+import '../css/mobile-phones.css';
+import '../css/tablet-portait.css'
+import '../css/tablet-landscape.css';
+import '../css/regular-monitors.css';
+import '../css/ultra-wide.css'
 
 class App extends Component {
   constructor(props) {

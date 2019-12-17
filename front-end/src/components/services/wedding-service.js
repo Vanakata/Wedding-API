@@ -6,7 +6,7 @@ class WeddingService {
         this.baseUrl = 'http://localhost:5000/weddings';
         this.allWeddingsUrl = `${this.baseUrl}/all`;
         this.editWeddingUrl = `${this.baseUrl}/edit`;
-        this.deleteWeddingUrl = `${this.baseUrl}/delete`;
+        this.deleteWeddingUrl = `${this.baseUrl}/delete/`;
         this.userWeddingUrl='http://localhost:5000/';
     }
     edit(id, credentials) {

@@ -79,7 +79,7 @@ class CreateWedding extends React.Component {
         })
     }
     render() {
-        const { email, username, password, confirmPassword, weddingDate, error, isRegister, bestMan, godmother, ceremonyPlace, ceremonyStart, ceremonyEnd, partyPlace, partyStart, partyEnd, groom, bride } = this.state;
+        const { email, username, password, confirmPassword, weddingDate, error, isRegister, bestMan, godmother, ceremonyPlace, ceremonyStart, partyPlace, partyStart, groom, bride } = this.state;
 
         const { isLoggedIn } = this.props;
 
@@ -195,7 +195,7 @@ class CreateWedding extends React.Component {
                         /><br />
                     </div>
                     <div id="create-godmother" className="create-wedding">
-                        <label className="create-wedding-label">Godmother<small>(optional)</small>:</label>
+                        <label className="create-wedding-label">Maid of honor<small>(optional)</small>:</label>
                         <input
                             type='text'
                             name='godmother'

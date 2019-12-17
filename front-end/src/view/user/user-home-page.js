@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { UserConsumer } from '../../components/user-context/User-Context';
 import UserService from '../../components/services/user-service';
 import UserHomePageCard from '../../components/user/user-homepage-card';

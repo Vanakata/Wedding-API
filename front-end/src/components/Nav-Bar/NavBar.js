@@ -6,18 +6,19 @@ import { Fade } from 'react-reveal';
 
 const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
     return (
+
         <header id="header">
             <nav id="navigation" >
-                <Fragment >
+                <Fragment  >
                     <Fragment >
                         <Fragment >
                             <Fragment >
                                 {
                                     isAdmin
                                         ?
-                                        <NavLink id="greeting-message" to="/"><strong>Welcome to My Wedding.</strong></NavLink>
+                                        <NavLink id="greeting-message" to="/"><strong>My Wedding Buddy.</strong></NavLink>
                                         :
-                                        <NavLink id="greeting-message" to="/user/wedding-homepage"><strong>Welcome to My Wedding.</strong></NavLink>
+                                        <NavLink id="greeting-message" to="/user/wedding-homepage"><strong>My Wedding Buddy.</strong></NavLink>
 
                                 }
                             </Fragment>
@@ -36,7 +37,7 @@ const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
                                                         <div className="wrapper-inner-tab-backgrounds">
                                                             <div className="wrapper-inner-tab-background">
                                                                 <div className="sim-button button11">
-                                                                    <NavLink to="/" onClick={logout}><span>Exit Page</span></NavLink>
+                                                                    <NavLink to="/" onClick={logout}><span>Logout</span></NavLink>
                                                                 </div>
                                                             </div>
                                                             <div className="wrapper-inner-tab-background">
@@ -58,7 +59,7 @@ const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
                                                         <div className="wrapper-inner-tab-backgrounds">
                                                             <div className="wrapper-inner-tab-background">
                                                                 <div className="sim-button button11">
-                                                                    <NavLink to="/" onClick={logout}><span>Exit Page</span></NavLink>
+                                                                    <NavLink to="/" onClick={logout}><span>Logout</span></NavLink>
                                                                 </div>
                                                             </div>
                                                             <div className="wrapper-inner-tab-background">
@@ -121,8 +122,6 @@ const NavBar = ({ isAdmin, isLoggedIn, logout }) => {
                                             </div>
                                         </Fade>
                                     </Fragment>
-
-
                             }
                         </div>
 

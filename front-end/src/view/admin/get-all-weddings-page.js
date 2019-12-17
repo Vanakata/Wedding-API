@@ -28,7 +28,7 @@ class AllWeddings extends Component {
             <Fragment>
                 <div id="weddings-container">
                     <h2>Weddings List:</h2>
-                    <div>
+                    <div id="all-weddings">
                         {
                             weddings.map(wedding => (
                                 <WeddingCard key={wedding._id} wedding={wedding} />

@@ -39,19 +39,18 @@ a {
 /* Navigation menu */
 
 #header {
-    /* border: 1px solid red; */
+    border: 1px solid purple;
     position: fixed;
     top: 0px;
     margin: auto auto;
-    width: 100%;
-    height: 18%;
+    width: fit-content;
+    height: fit-content;
 }
 
 #navigation {
     /* border: 1px solid black; */
     position: fixed;
     top: 0px;
-    width: 100%;
     height: 15%;
 }
 
@@ -59,15 +58,15 @@ a {
     /* border: 1px solid purple; */
     position: fixed;
     top: 0px;
-    right: 0px;
-    display: inline none;
+    display: inline;
+    display: none;
     padding: 15px;
     text-align: right;
     font-size: 20px;
     height: 12%;
 }
 
-#nav-container, .wrapper-inner-tab-backgrounds, .success-message, .wedding-details {
+#nav-container, .wrapper-inner-tab-backgrounds, .confirm-message, .success-message, .wedding-details {
     font-family: 'Sulphur Point', sans-serif;
 }
 
@@ -81,12 +80,11 @@ a {
 }
 
 #login-container {
+    overflow: auto;
+    overflow-x: hidden;
     border: 1px solid whitesmoke;
-    width: 510px;
     color: whitesmoke;
-    position: fixed;
-    top: 15%;
-    left: 32%;
+    position: relative;
     border-radius: 20px;
     -webkit-animation-name: animation-container;
     -webkit-animation: animation-container 8s;
@@ -120,10 +118,8 @@ a {
     font-size: 40px;
 }
 
-.login-input, .login-input-btn {
+.login-input {
     position: relative;
-    top: 65px;
-    right: 15%;
     margin: 20px;
 }
 
@@ -131,17 +127,12 @@ a {
     font-size: 30px;
 }
 
-.login-input-btn, .create-guest-button {
+.create-guest-button {
     position: relative;
-    left: 15%;
-    top: 120px;
-    width: 24%;
-    height: 34px;
     border-radius: 20px;
     border-style: thin;
     background-color: transparent;
     color: whitesmoke;
-    font-size: 20px;
     cursor: pointer;
     outline: none;
 }
@@ -166,6 +157,16 @@ a {
     color: black;
 }
 
+.button11 {
+    position: relative;
+    left: -15%;
+}
+
+.button11 a {
+    position: relative;
+    top: 20%;
+}
+
 /* Home page user */
 
 .homepage-container {
@@ -173,7 +174,7 @@ a {
     height: 80%;
     position: fixed;
     left: 2%;
-    top: 10%;
+    top: 50%;
     display: inline-grid;
     text-align: center;
 }
@@ -265,7 +266,7 @@ a {
 
 .temp {
     position: relative;
-    top: 15%;
+    top: 5%;
 }
 
 .intro h3 {
@@ -277,10 +278,10 @@ a {
 }
 
 .wedding-events-container {
+    /* border:1px solid red; */
     position: relative;
-    top: 110px;
+    width: fit-content;
     display: inline-block;
-    width: 80%;
     text-align: center;
     align-content: center;
     margin: 30px;
@@ -292,9 +293,9 @@ a {
 }
 
 .event {
+    /* border:solid 1px yellow; */
+    position: relative;
     display: inline;
-    width: 550px;
-    float: right;
     text-align: center;
     align-content: center;
 }
@@ -306,13 +307,14 @@ a {
 
 .event span {
     font-size: 30px;
-    padding-top: 25px;
-    padding: 10px;
 }
 
 .event p {
-    padding-top: 20px;
     font-size: 20px;
+}
+
+#main-ceremony, #wedding-party {
+    float: left;
 }
 
 #main-ceremony h3, #wedding-party h3 {
@@ -324,7 +326,7 @@ a {
 .create-guest-container {
     /* border: 1px solid yellow; */
     height: 550px;
-    width: 510px;
+    width: fit-content;
     position: fixed;
     top: 15%;
     font-size: 20px;
@@ -348,6 +350,14 @@ a {
     margin: 10px;
     font-size: 35px;
     color: whitesmoke;
+}
+
+.create-guest-names {
+    font-size: 30px;
+}
+
+.create-guest-button {
+    font-size: 25px;
 }
 
 .create-guest form {
@@ -386,7 +396,6 @@ a {
     border-color: white;
     border-radius: 25px;
     width: 95%;
-    height: 90%;
     display: inline-grid;
     position: fixed;
     left: 2%;
@@ -451,8 +460,6 @@ a {
 
 .guests h3 {
     position: relative;
-    left: 45%;
-    font-size: 85px;
 }
 
 .guests h5 {
@@ -461,28 +468,16 @@ a {
 }
 
 #guest-on-line {
+    height: fit-content;
     border-bottom: 1px solid whitesmoke;
 }
 
 #status-question-container {
-    position: relative;
-    top: 2%;
-    right: 35%;
+    position: absolute;
     align-items: center;
     text-align: center;
     font-family: "Georgia", cursive;
     font-size: 17px;
-}
-
-#check-attendence {
-    position: relative;
-    left: 27%;
-}
-
-#total-guests {
-    position: relative;
-    bottom: -2%;
-    left: 2%;
 }
 
 .select-box {
@@ -527,6 +522,7 @@ a {
 }
 
 #no-guests-message {
+    height: 50%;
     color: whitesmoke;
     text-align: center;
 }
@@ -550,30 +546,40 @@ a {
 /* Display all weddings - admin */
 
 #weddings-container {
+    height: 55%;
     color: whitesmoke;
     overflow: auto;
     overflow-x: hidden;
+    position: relative;
 }
 
 #weddings-container h2 {
     /* border: 1px solid yellow; */
-    height: 16%;
-    width: 70%;
-    font-size: 75px;
-    position: relative;
+    height: fit-content;
+    width: fit-content;
 }
 
-.wedding {
+#all-weddings {
+    /* border:1px solid yellow; */
+    overflow: auto;
+    overflow-x: auto;
     position: relative;
-    display: inline-grid;
-    float: left;
+    height: 55%;
+    width: 75%;
+    bottom: 5%;
+    left: 10%;
+}
+
+#wedding-name {
+    position: relative;
     text-align: center;
     column-fill: auto;
     background-color: whitesmoke;
     border-radius: 100px 5px;
+    top: 10%;
 }
 
-.wedding:hover {
+#wedding-name:hover {
     background-color: transparent;
 }
 
@@ -588,6 +594,8 @@ a {
 /* Display wedding details - admin */
 
 .wedding-details-container {
+    overflow: auto;
+    overflow-x: hidden;
     color: whitesmoke;
     text-align: left;
 }
@@ -625,6 +633,7 @@ a {
     align-items: start;
     justify-content: space-between;
 }
+
 .create-wedding-input {
     border-radius: 20px;
     background-color: transparent;
@@ -632,11 +641,13 @@ a {
     color: whitesmoke;
     outline: none;
 }
+
 .create-wedding-input:hover {
     background-color: whitesmoke;
     color: black;
     cursor: text;
 }
+
 #create-wedding-button {
     border: 1px solid whitesmoke;
     position: relative;
@@ -647,519 +658,8 @@ a {
     outline: none;
 }
 
-/*-------------------- Mobile phones styles-------------------- */
-
-@media (max-width: 599px) {
-    .App {
-        background-image: url('../images/paul-gilmore-ho0pa0twtwe-unspl-mobile-devices.jpg')
-    }
-    /* ----------------------------Navigation bar------------------------------ */
-    #nav-container {
-        /* border:1px solid black; */
-        font-size: 80%;
-        width: 100%;
-        height: 10%;
-        justify-content: center;
-        align-items: center;
-    }
-    #greeting-message {
-        display: none;
-    }
-    .wrapper-inner-tab-backgrounds {
-        /* border: 1px solid yellow; */
-        display: inline;
-        padding: 10px;
-        position: fixed;
-        right: 0px;
-        top: 0%;
-        float: right;
-        width: 100%;
-        height: 15%;
-    }
-    .wrapper-inner-tab-background {
-        position: relative;
-        justify-content: center;
-        top: -10px;
-        display: inline-block;
-        float: right;
-        height: max-content;
-        width: 20%;
-    }
-    .sim-button {
-        line-height: 15px;
-        height: 50px;
-        text-align: center;
-        margin-top: 25px;
-        width: 80%;
-        cursor: pointer;
-    }
-    .button11 {
-        color: whitesmoke;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-        position: relative;
-        perspective: 2000px;
-    }
-    .button11 a {
-        color: whitesmoke;
-        text-decoration: none;
-        display: block;
-    }
-    .button11 span {
-        z-index: 2;
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-    .button11::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.25);
-    }
-    .button11::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.25);
-    }
-    .button11:hover::before {
-        -webkit-transform: rotateX(60deg) translate(0px, 40px);
-        transform: rotateX(60deg) translate(0px, 40px);
-    }
-    .button11:hover::after {
-        -webkit-transform: rotateX(-60deg) translate(0px, -40px);
-        transform: rotateX(-60deg) translate(0px, -40px);
-    }
-    /*---------------------------------- Login page------------------------------- */
-    #login-container {
-        position: relative;
-        left: 15%;
-        top: 15%;
-        width: 70%;
-        height: 50%;
-    }
-    .login-input, .login-input-btn {
-        top: 10%;
-        right: 10%;
-        margin: 20px;
-    }
-    .login-input-btn {
-        width: 35%;
-    }
-    .login-text label {
-        font-size: 20px;
-    }
-    .login-text h1 {
-        top: -12%;
-    }
-    /*---------------------------------- User home page----------------------------  */
-    .homepage-container {
-        top: 15%;
-    }
-    .user-page-container h1, .wedding-date h2 {
-        font-size: 55px;
-    }
-    .event {
-        width: 300px;
-        float: right;
-        text-align: center;
-        align-content: center;
-    }
-    .event h3 {
-        font-size: 45px;
-        padding-bottom: 25px;
-    }
-    .event span {
-        font-size: 15px;
-        padding-top: 25px;
-        padding: 10px;
-    }
-    .event p {
-        padding-top: 20px;
-        font-size: 20px;
-    }
-    #main-ceremony {
-        /* border:1px solid blue; */
-        font-size: 15px;
-        position: relative;
-        right: -18%;
-    }
-    #wedding-party {
-        /* border: 1px solid red; */
-        margin: 110px;
-        font-size: 15px;
-        position: relative;
-        left: 40%;
-    }
-    .create-guest-container {
-        height: 80%;
-        width: 80%;
-        font-size: 15px;
-        left: 10%;
-    }
-    /* Create guest list */
-    .guest-container {
-        top: 10%;
-    }
-    .guest-names {
-        font-size: 15px;
-    }
-    .create-guest-button {
-        position: relative;
-        top: 15%;
-        left: 50%;
-        width: 45%;
-    }
-    .success-message {
-        color: greenyellow;
-        height: 10%;
-        width: 120%;
-        font-size: 20px;
-        left: -10%;
-        top: 17%;
-    }
-    /* Display guest list */
-    .guest-container {
-        top: 15%;
-        height: 85%;
-    }
-    .guests h3 {
-        position: relative;
-        left: 30%;
-        font-size: 55px;
-    }
-    .guests h5 {
-        right: 25%;
-    }
-    #status-question-container {
-        top: 5%;
-        left: -4%;
-        align-items: center;
-        text-align: center;
-        font-family: "Georgia", cursive;
-        font-size: 17px;
-    }
-    #check-attendence {
-        display: none;
-    }
-    .select-box {
-        left: -12%;
-        bottom: -18px;
-    }
-    .status {
-        position: relative;
-        width: 65px;
-        left: 45%;
-        top: 15px;
-    }
-    .guest-button input {
-        position: relative;
-        top: -3px;
-        margin: 1px;
-        height: 25px;
-        width: 15%;
-        background-color: transparent;
-        color: white;
-    }
-    #confirm-status {
-        left: 15%;
-        width: 20%;
-    }
-    #delete-guest {
-        font-size: 10px;
-        left: 17%;
-        width: 30%;
-    }
-    #total-guests {
-        color: greenyellow;
-        font-size: 15px;
-        position: absolute;
-        top: 22%;
-        left: 7%;
-    }
-    /* Display all weddings - admin */
-    #weddings-container {
-        height: 80%;
-        top: 15%;
-    }
-    #weddings-container h2 {
-        /* border: 1px solid yellow; */
-        width: 70%;
-        font-size: 45px;
-        left: 20%;
-    }
-    .wedding {
-        bottom: 50%;
-        left: 20%;
-        margin: 20px;
-        width: 50%;
-        font-size: 20px;
-    }
-    /* Display wedding details - admin */
-    .wedding-details-container {
-        top: 15%;
-        height: 80%;
-    }
-    .wedding-details {
-        top: 7%;
-        font-size: 20px;
-    }
-    /* Display create wedding page - admin */
-    .create-wedding-container {
-        height: 80%;
-        width: 100%;
-        top: 15%;
-        font-size: 20px;
-    }
-    .create-wedding {
-        left: 7%;
-        top: 10px;
-        width: 140px;
-        grid-template-columns: 130px 120px 120px;
-    }
-    .create-wedding-input {
-        height: 25px;
-        width: 150px;
-        margin: 10px;
-        font-size: 10px;
-    }
-    #create-wedding-button {
-        background-color: greenyellow;
-        font-weight: bold;
-        color:black;
-        height: 60%;
-        width: 100%;
-        top: 5px;
-        left: 0%;
-        font-size: 20px;
-    }
-}
-
-/* ------------------Desktop Styles regular monitors--------------*/
-
-@media (min-width:1200px) {
-    .App {
-        background-image: url('../images/paul-gilmore-hO0pA0TwTwE-unsplash.jpg');
-        justify-content: center;
-        align-items: center;
-    }
-    /* Navigation bar */
-    #nav-container, .wrapper-inner-tab-backgrounds, .success-message, .wedding-details {
-        font-family: 'Sulphur Point', sans-serif;
-    }
-    #nav-container {
-        font-size: 20px;
-        width: 900px;
-    }
-    #greeting-message {
-        font-size: 45px;
-    }
-    .wrapper-inner-tab-backgrounds {
-        /* border: 1px solid yellow; */
-        display: inline;
-        padding: 10px;
-        position: fixed;
-        right: 0px;
-        top: -20px;
-        float: right;
-        width: 1000px;
-    }
-    .wrapper-inner-tab-background {
-        position: relative;
-        display: inline-block;
-        left: 8%;
-        float: right;
-        height: max-content;
-        width: 20%;
-    }
-    .sim-button {
-        line-height: 50px;
-        height: 50px;
-        text-align: center;
-        margin-top: 25px;
-        width: 60%;
-        cursor: pointer;
-    }
-    .button11 {
-        color: rgba(255, 255, 255, 1);
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-        position: relative;
-        perspective: 2000px;
-    }
-    .button11 a {
-        color: whitesmoke;
-        text-decoration: none;
-        display: block;
-    }
-    .button11 span {
-        z-index: 2;
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-    .button11::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.25);
-    }
-    .button11::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        transition: all 0.5s;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.25);
-    }
-    .button11:hover::before {
-        -webkit-transform: rotateX(60deg) translate(0px, 40px);
-        transform: rotateX(60deg) translate(0px, 40px);
-    }
-    .button11:hover::after {
-        -webkit-transform: rotateX(-60deg) translate(0px, -40px);
-        transform: rotateX(-60deg) translate(0px, -40px);
-    }
-    /* Create guest list */
-    .create-guest-button {
-        position: relative;
-        top: 50%;
-        left: 75%;
-    }
-    .success-message {
-        position: absolute;
-        left: 100%;
-        top: 4%;
-        background-color: rgba(0, 0, 0, .8);
-        border-radius: 25px;
-        text-align: center;
-    }
-    /* User home page */
-    #main-ceremony {
-        position: relative;
-        right: 58%;
-    }
-    #wedding-party {
-        position: relative;
-        right: 2%;
-        top: 9%;
-    }
-    /* Guest list page */
-    .guest-container {
-        top: 11%;
-    }
-    #check-attendence {
-        position: relative;
-        left: 26%;
-        top: 35px;
-    }
-    .status {
-        position: relative;
-        left: 9%;
-        top: 15px;
-    }
-    .guest-button input {
-        height: 25px;
-        width: 10%;
-        background-color: transparent;
-        color: white;
-    }
-    /* Login page */
-    #login-container {
-        height: 80%;
-        width: 510px;
-        color: whitesmoke;
-    }
-    /* Display all weddings - admin */
-    #weddings-container h2 {
-        left: 36%;
-    }
-    .wedding {
-        bottom: 60%;
-        left: 5%;
-        margin: 15px;
-        width: 10%;
-        font-size: 20px;
-    }
-    /* Display wedding details - admin */
-    .wedding-details {
-        top: 7%;
-        font-size: 35px;
-    }
-    .create-wedding-container {
-        height: 80%;
-        width: 75%;
-        top: 15%;
-        font-size: 20px;
-    }
-    /* Display create wedding page - admin */
-    .create-wedding-container {
-        height: 90%;
-        width: 100%;
-        top: 10%;
-        font-size: 20px;
-    }
-    .create-wedding {
-        left: 10%;
-        top: 10px;
-        width: 140px;
-        grid-template-columns: 320px 120px 120px;
-    }
-    .create-wedding-input {
-        height: 30px;
-        width: 250px;
-        margin: 10px;
-        font-size: 15px;
-    }
-    #create-wedding-button {
-        background-color: greenyellow;
-        font-weight: bold;
-        color:black;
-        height: 60%;
-        width: 100%;
-        top: 5px;
-        left: 0%;
-        font-size: 20px;
-    }
+.wedding-details-container h5 {
+    position: relative;
+    top: 20%;
+    left: 2%;
 }

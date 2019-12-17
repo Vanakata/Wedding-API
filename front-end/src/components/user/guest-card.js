@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import GuestService from '../services/guest-list-service';
+import Fade from 'react-reveal/Fade';
 
 class GuestCard extends Component {
     constructor(props) {
@@ -40,6 +41,7 @@ class GuestCard extends Component {
             } catch (error) {
                 console.log(error);
             }
+            
         })
     }
     handleDelete = (event) => {
@@ -81,11 +83,19 @@ class GuestCard extends Component {
                             {
                                 this.state.isUpdate === true
                                     ?
-                                    <h6 className="status">{this.state.value}</h6>
+                                    <Fragment>
+                                        <h6 className="status">{this.state.value}</h6>
+                                        <Fade right ><div className="confirm-message">
+                                            <p>You have checked</p>
+                                        </div>
+                                        </Fade>
+                                    </Fragment>
                                     :
                                     <h6 className="status">{guest.isComing}</h6>
                             }
+
                             <h5>{guest.firstName} {guest.lastName}</h5>
+                            <span id="isComing">is coming:</span>
                             <div>
                                 <select className="select-box" onChange={this.handleOptionChange}>
                                     <option value="None">--</option>
