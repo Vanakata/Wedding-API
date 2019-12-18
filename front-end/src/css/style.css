@@ -136,6 +136,14 @@ a {
     cursor: pointer;
     outline: none;
 }
+.login-input-btn{
+    border-radius: 20px;
+    border-style: thin;
+    background-color: transparent;
+    color: whitesmoke;
+    cursor: pointer;
+    outline: none;
+}
 
 .login-input-btn:hover, .create-guest-button:hover {
     background-color: whitesmoke;
@@ -473,7 +481,7 @@ a {
 }
 
 #status-question-container {
-    position: absolute;
+    /* border: 1px solid yellow; */
     align-items: center;
     text-align: center;
     font-family: "Georgia", cursive;

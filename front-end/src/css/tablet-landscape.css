@@ -110,13 +110,12 @@
         width: 70%;
         height: 45%;
     }
-    .login-input, .login-input-btn {
+    .login-input{
         top: 150px;
         right: 10%;
         margin: 20px;
     }
     .login-input-btn {
-        top: 250px;
         width: 35%;
     }
     .login-text label {
